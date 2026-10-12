@@ -1,0 +1,51 @@
+/* A minimal modern CSS reset tuned for Affinda UI */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+  background-color: var(--af-color-bg-surface);
+  color: var(--af-color-fg-default);
+}
+/*
+  Note: we deliberately don't set `-webkit-font-smoothing: antialiased`
+  here. On Linux+Chrome (and some Windows configs) it forces grayscale
+  rasterization that renders NeuSans visibly heavier than its native
+  weight; on macOS it renders thinner. The live affinda.com site
+  doesn't set it either, so leaving it unset is what matches the
+  reference rendering across platforms. Verified 2026-04-27 — preview
+  vs live "Platform" headings became visually identical once this
+  declaration was removed.
+*/
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+:root {
+  color-scheme: light dark;
+}

@@ -1,0 +1,82 @@
+/* Footer styles copied from the Affinda website (src/styles/october-navigation.css)
+   so this page's footer matches affinda.com. Keep in sync if the site changes. */
+   wordmark carried over from the current site's footer. */
+/* Three even nav columns; the Affinda Group cross-link lives under Products behind a small label. */
+/* Every footer link (nav columns and the legal row) shares one rest colour and
+   one hover, and the columns use two spacings only: --footer-gap-tight between a
+   heading and its links and between sibling links, --footer-gap-group between
+   one group and the next heading. */
+.october-footer af-footer {
+  --af-footer-nav-columns: 3;
+  --af-footer-link-color: var(--colour-mistgreen-600, #b2c0bc);
+  --af-footer-link-hover-color: var(--colour-brand-white, #ffffff);
+  --footer-gap-tight: var(--space-3, 12px);
+  --footer-gap-group: var(--space-8, 32px);
+  --af-footer-heading-gap: var(--footer-gap-tight);
+  --af-footer-link-gap: var(--footer-gap-tight);
+}
+/* A sub-heading inside a footer column: the same type as af-footer-column's headings. */
+.fl-label { display: block; font-family: var(--typography-primaryfont, 'NeuSans', sans-serif); font-size: 14px; font-weight: 600; color: var(--colour-brand-soft-clay, #B09670); }
+/* The list's own gap already supplies the tight spacing above the label. */
+.fl-label--gap { margin-top: calc(var(--footer-gap-group) - var(--footer-gap-tight)); }
+/* Hairline between the footer CTA and the brand row (the design's mobile
+   rule, applied at all widths on October pages): 40px below the cards. */
+.october-footer af-footer {
+  --af-footer-cta-padding-bottom: 40px;
+  --af-footer-cta-border: 1px solid var(--colour-inkwell-450, #203e45);
+}
+/* White brand logo, as on the current site's footer. */
+.october-footer af-logo,
+.october-footer af-logo-mark { --af-background-icon-default: var(--colour-brand-white, #ffffff); color: var(--colour-brand-white, #ffffff); }
+/* ≤768px the footer brand row shows just the logo mark. */
+.october-footer__logo-mark { display: none; }
+@media (max-width: 768px) {
+  .october-footer__logo-full { display: none; }
+  .october-footer__logo-mark { display: inline-flex; }
+}
+.october-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  box-sizing: border-box;
+  width: calc(100% - 48px);
+  max-width: 1232px;
+  margin: 24px auto 0;
+  padding: 20px 48px;
+  border-radius: var(--radius-2xl, 32px);
+  background: var(--colour-inkwell-450, #203e45);
+}
+.october-footer__copyright { margin: 0; font-size: 17px; font-weight: 500; color: var(--af-footer-link-color); }
+.october-footer__legal { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; flex: 1; }
+.october-footer__legal a {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--af-footer-link-color);
+  text-decoration: none;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+.october-footer__legal a:hover,
+.october-footer__legal a:focus-visible { color: var(--af-footer-link-hover-color); text-decoration: underline; }
+.october-footer__badges { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.october-footer__badges img { height: 64px; width: 64px; object-fit: contain; }
+.october-footer__wordmark { line-height: 0; pointer-events: none; color: var(--colour-inkwell-450, #203e45); }
+.october-footer__wordmark svg { display: block; width: 100%; height: auto; }
+/* The tall letters join the bottom bar above them. Tucking the wordmark 1px
+   under the bar means a fractional bar height can never leave a hairline of
+   page colour between two same-colour shapes (both edges antialiased). */
+@media (min-width: 768px) {
+  .october-footer__wordmark { margin-top: -1px; }
+}
+/* ≤767px the bottom bar loses its card chrome: a left-aligned stack of
+   copyright, legal links (one per line) and badges, like the footer design. */
+@media (max-width: 767px) {
+  .october-footer__bottom { background: none; border-radius: 0; width: calc(100% - 40px); padding: 0; margin-top: 40px; flex-direction: column; align-items: flex-start; gap: 16px; }
+  .october-footer__copyright { font-size: 14px; }
+  .october-footer__legal { flex: none; flex-direction: column; align-items: flex-start; gap: 12px; }
+  .october-footer__legal a { font-size: 14px; }
+  .october-footer__badges { margin-top: 8px; }
+  .october-footer__badges img { height: 60px; width: 60px; }
+}

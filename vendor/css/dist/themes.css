@@ -1,0 +1,6 @@
+/**
+ * Theme-scoped custom properties — canonical definitions live in
+ * `@affinda/tokens/themes.css` (single source). This file re-exports them
+ * for `@affinda/css` consumers.
+ */
+@import "../../tokens/themes.css";

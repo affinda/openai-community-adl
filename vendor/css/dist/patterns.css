@@ -1,0 +1,74 @@
+/* ==========================================================================
+   Repeating pattern backgrounds (utility classes)
+
+   Apply an `af-pattern-*` class to any element to paint a decorative pattern
+   as that element's background (behind its content). Works on a card, a
+   section's inner surface, a plain div — anything you control the background
+   of. The declarations can also be pasted straight into a `style`/cssOverride.
+
+   Customise with custom properties on the element:
+     --af-pattern-colour  ink colour        (default: the theme line colour)
+     --af-pattern-size    tile size         (default: 24px)
+     --af-pattern-angle   stripe angle      (default: 45deg, stripes only)
+   ========================================================================== */
+
+[class*='af-pattern-'] {
+  --_af-pat-colour: var(--af-pattern-colour, var(--af-background-border-default, #14343b));
+  --_af-pat-size: var(--af-pattern-size, 24px);
+  --_af-pat-angle: var(--af-pattern-angle, 45deg);
+  background-repeat: repeat;
+}
+
+/* Checkerboard (conic) --------------------------------------------------- */
+.af-pattern-checkerboard {
+  background-image: conic-gradient(
+    var(--_af-pat-colour) 0 25%,
+    transparent 0 50%,
+    var(--_af-pat-colour) 0 75%,
+    transparent 0
+  );
+  background-size: var(--_af-pat-size) var(--_af-pat-size);
+}
+
+/* Polka dots (radial, staggered) ----------------------------------------- */
+.af-pattern-polka-dots {
+  background-image:
+    radial-gradient(var(--_af-pat-colour) 22%, transparent 24%),
+    radial-gradient(var(--_af-pat-colour) 22%, transparent 24%);
+  background-size: var(--_af-pat-size) var(--_af-pat-size);
+  background-position: 0 0, calc(var(--_af-pat-size) / 2) calc(var(--_af-pat-size) / 2);
+}
+
+/* Stripes (linear) ------------------------------------------------------- */
+.af-pattern-stripes {
+  background-image: repeating-linear-gradient(
+    var(--_af-pat-angle),
+    var(--_af-pat-colour) 0 calc(var(--_af-pat-size) / 2),
+    transparent 0 var(--_af-pat-size)
+  );
+}
+
+/* Graph paper (major + minor grid) --------------------------------------- */
+.af-pattern-graph-paper {
+  background-image:
+    repeating-linear-gradient(0deg, var(--_af-pat-colour) 0 1px, transparent 1px calc(var(--_af-pat-size) * 5)),
+    repeating-linear-gradient(90deg, var(--_af-pat-colour) 0 1px, transparent 1px calc(var(--_af-pat-size) * 5)),
+    repeating-linear-gradient(
+      0deg,
+      color-mix(in srgb, var(--_af-pat-colour) 45%, transparent) 0 1px,
+      transparent 1px var(--_af-pat-size)
+    ),
+    repeating-linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--_af-pat-colour) 45%, transparent) 0 1px,
+      transparent 1px var(--_af-pat-size)
+    );
+}
+
+/* Isometric grid (three line sets) --------------------------------------- */
+.af-pattern-isometric-grid {
+  background-image:
+    repeating-linear-gradient(30deg, var(--_af-pat-colour) 0 1px, transparent 1px var(--_af-pat-size)),
+    repeating-linear-gradient(150deg, var(--_af-pat-colour) 0 1px, transparent 1px var(--_af-pat-size)),
+    repeating-linear-gradient(90deg, var(--_af-pat-colour) 0 1px, transparent 1px calc(var(--_af-pat-size) * 1.732));
+}

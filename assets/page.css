@@ -1,0 +1,94 @@
+/* Page-level layout only. Affinda components (af-*) own their own look:
+   don't add styles to them here. Use the --colour-*, --space-* tokens. */
+
+body {
+  background: var(--colour-brand-ivory-paper);
+}
+
+/* Section label above a heading. Matches the affinda.com eyebrow, in
+   sentence case. */
+.eyebrow {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--colour-tints-soft-clay-600, #9e8765);
+}
+
+/* Keep the hero title from leaving a single word on its own line. */
+af-hero h1 {
+  text-wrap: balance;
+}
+
+.agenda {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--colour-tints-mist-green-400);
+}
+
+.agenda li {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: var(--space-4);
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid var(--colour-tints-mist-green-400);
+}
+
+.agenda-time {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.agenda-body {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.agenda-group {
+  font-size: 14px;
+  color: var(--colour-tints-soft-clay-600, #9e8765);
+}
+
+.agenda-title {
+  font-size: 18px;
+}
+
+.agenda-speaker {
+  font-size: 15px;
+  color: var(--colour-tints-inkwell-350, #60767b);
+}
+
+.resources {
+  list-style: none;
+  margin: var(--space-2) 0 0;
+  padding: var(--space-4) 0 0;
+  border-top: 1px solid var(--colour-tints-mist-green-300);
+  display: grid;
+  gap: var(--space-2);
+}
+
+.resources a {
+  color: inherit;
+  text-underline-offset: 3px;
+}
+
+.resources-empty {
+  color: var(--colour-tints-inkwell-350, #60767b);
+}
+
+@media (max-width: 560px) {
+  .agenda li {
+    grid-template-columns: 1fr;
+    gap: var(--space-1);
+  }
+}
+
+/* The agenda intro stays in view while the list scrolls past it. */
+@media (min-width: 992px) {
+  .agenda-intro {
+    position: sticky;
+    top: 120px;
+    align-self: start;
+  }
+}

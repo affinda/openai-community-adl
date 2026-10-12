@@ -1,0 +1,154 @@
+/**
+ * Affinda Typography - NeuSans Font Family
+ *
+ * Shipped as Latin-1 + General Punctuation subset WOFF2 (see
+ * `packages/css/scripts/subset-fonts.mjs`). Masters live in
+ * `packages/css/fonts-src/` (OTF, not published to npm). Re-run the
+ * subset script if copy ever needs glyphs outside Latin-1.
+ *
+ * Core NeuSans family weights: 300 (Light), 400 (Regular), 400 italic,
+ * 600 (Medium). Weight 500 remains deliberately omitted from the core family
+ * so existing 500-weight headings continue matching live affinda.com. A
+ * separate `NeuSans Book` family is shipped for explicitly art-directed labels
+ * that call for the slightly heavier Book cut.
+ *
+ * Metric overrides: every face carries `size-adjust: 105%`,
+ * `ascent-override: 90%`, `descent-override: 20%`. These match the
+ * live affinda.com Webflow `@font-face` rules — without them
+ * NeuSans renders ~5 % smaller and with a slightly different
+ * baseline than designers calibrated against.
+ *
+ * Why no weight 500: live affinda.com headings declare
+ * `font-family: Neusans-Optimized; font-weight: 500`, but the
+ * Optimized family on Webflow only ships {400 Regular, 700 Bold}.
+ * Per CSS Fonts L4 weight-matching, 500 then falls to 400 (Regular).
+ * We previously shipped a NeuSans-Book.woff2 master at weight 500,
+ * which produced visibly heavier glyphs than live (Book is a
+ * separate cut, slightly bolder than Regular). Dropping the 500
+ * face here makes our family fall through 500 → 400 = Regular,
+ * exactly mirroring live's effective rendering. Verified
+ * 2026-04-27 via Playwright pixel-diff on /au's "Platform" heading.
+ */
+
+/* NeuSans Light (Weight 300) — FAQ decorative +/× glyph and the rare
+   ultra-thin display usage. */
+@font-face {
+  font-family: 'NeuSans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('../fonts/NeuSans-Light.woff2') format('woff2');
+  size-adjust: 105%;
+  ascent-override: 90%;
+  descent-override: 20%;
+}
+
+/* NeuSans Regular (Weight 400) */
+@font-face {
+  font-family: 'NeuSans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/NeuSans-Regular.woff2') format('woff2');
+  size-adjust: 105%;
+  ascent-override: 90%;
+  descent-override: 20%;
+}
+
+@font-face {
+  font-family: 'NeuSans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/NeuSans-RegularItalic.woff2') format('woff2');
+  size-adjust: 105%;
+  ascent-override: 90%;
+  descent-override: 20%;
+}
+
+/* NeuSans Book — separate family so this face is opt-in and does not change
+   the site-wide 500 → Regular fallback used by existing headings. */
+@font-face {
+  font-family: 'NeuSans Book';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/NeuSans-Book.woff2') format('woff2');
+  size-adjust: 105%;
+  ascent-override: 90%;
+  descent-override: 20%;
+}
+
+/* NeuSans Medium (Weight 600) */
+@font-face {
+  font-family: 'NeuSans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/NeuSans-Medium.woff2') format('woff2');
+  size-adjust: 105%;
+  ascent-override: 90%;
+  descent-override: 20%;
+}
+
+/*
+ * Webflow live uses font-family: Neusans-Optimized with the same metrics.
+ * Duplicate @font-face blocks so computed styles match www.affinda.com.
+ */
+@font-face {
+  font-family: 'Neusans-Optimized';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('../fonts/NeuSans-Light.woff2') format('woff2');
+  size-adjust: 105%;
+  ascent-override: 90%;
+  descent-override: 20%;
+}
+
+@font-face {
+  font-family: 'Neusans-Optimized';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/NeuSans-Regular.woff2') format('woff2');
+  size-adjust: 105%;
+  ascent-override: 90%;
+  descent-override: 20%;
+}
+
+@font-face {
+  font-family: 'Neusans-Optimized';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/NeuSans-RegularItalic.woff2') format('woff2');
+  size-adjust: 105%;
+  ascent-override: 90%;
+  descent-override: 20%;
+}
+
+@font-face {
+  font-family: 'Neusans-Optimized';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/NeuSans-Medium.woff2') format('woff2');
+  size-adjust: 105%;
+  ascent-override: 90%;
+  descent-override: 20%;
+}
+
+/* Global font family setup (tokens loaded before this file — see index.css) */
+:root {
+  --font-family-heading: var(--typography-headingfont);
+  --font-family-body: var(--typography-bodyfont);
+  --font-family-button: var(--typography-sansfont);
+}
+
+/* Body typography lives in base.css (`--af-font-family-sans`, etc.) */
+
+/* Headings use theme stack */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+}

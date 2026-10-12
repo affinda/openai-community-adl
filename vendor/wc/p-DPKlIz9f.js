@@ -1,0 +1,1 @@
+function r(r,t){const n=r.tagName.toLowerCase();return Array.from(r.querySelectorAll(`[slot="${t}"]`)).some((t=>t.parentElement?.closest(n)===r))}export{r as h}

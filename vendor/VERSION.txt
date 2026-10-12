@@ -1,0 +1,1 @@
+Copied from the Affinda website repo, master 3a6bbf7 (2026-10-11). Don't edit; re-copy to update.
