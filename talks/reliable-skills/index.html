@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Build a first skill draft with Laurence Wood. Activity prompts, review checks and the UI element trimmer example from the Adelaide OpenAI Codex Community event.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#14343B">
+<title>Building a reliable skill | Laurence Wood · Affinda</title>
+<link rel="icon" href="../../assets/favicon.png">
+<!-- Relative paths only: the page is served from both GitHub Pages and
+     affinda.com/events/2026/openai-community-adl/. -->
+<link rel="stylesheet" href="../../vendor/css/dist/index.css">
+<script type="module" src="../../vendor/wc/affinda.esm.js"></script>
+<style>
+html { scroll-behavior: smooth; }
+:root { background-color: var(--colour-brand-ivory-paper); }
+body { margin: 0; background: var(--colour-brand-ivory-paper); color: var(--colour-brand-inkwell); font-family: 'NeuSans', system-ui, sans-serif; font-size: 17px; line-height: 1.55; }
+a { color: inherit; text-underline-offset: .22em; }
+:focus-visible { outline: 3px solid var(--colour-brand-inkwell); outline-offset: 5px; }
+.skip-link { position: absolute; top: -100px; left: 20px; background: var(--colour-brand-azure); padding: 12px; z-index: 5; }
+.skip-link:focus { top: 12px; }
+.wrap { width: min(100% - 48px, 1000px); margin-inline: auto; }
+.header { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 28px; }
+.header nav { display: flex; flex-wrap: wrap; gap: 24px; font-size: 15px; }
+.header a { text-decoration: none; }
+.logo-link { padding: 14px 0; line-height: 0; }
+.hero { padding-block: 56px 48px; color: var(--colour-brand-ivory-paper); }
+.hero h1, .hero h2, .hero p, .hero .contact-email { color: inherit; }
+.eyebrow { font-size: 14px; font-weight: 600; margin: 0 0 12px; }
+h1 { font-size: clamp(38px, 5.5vw, 64px); line-height: 1.05; letter-spacing: -.035em; font-weight: 400; margin: 0 0 22px; max-width: 740px; }
+.hero-intro { max-width: 680px; font-size: 20px; margin: 0; }
+.profile { display: flex; align-items: center; gap: 28px; padding: 32px 0 0; }
+.portrait { width: 132px; height: 156px; object-fit: cover; object-position: center 27%; border-radius: var(--radius-lg); flex-shrink: 0; }
+.profile h2 { font-size: 27px; line-height: 1.2; margin: 0 0 5px; font-weight: 600; }
+.profile p { margin: 0 0 10px; }
+.contact-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; }
+.contact-email { font-size: 15px; overflow-wrap: anywhere; }
+.section { padding-block: 50px; }
+.section-heading { font-size: clamp(28px, 3.5vw, 36px); line-height: 1.15; font-weight: 400; letter-spacing: -.025em; margin: 0 0 16px; }
+.section-intro { max-width: 760px; margin: 0 0 22px; }
+.getting-started { border-left: 3px solid var(--colour-brand-mist-green); padding-left: 20px; margin-bottom: 32px; }
+.getting-started p { margin: 8px 0; }
+.steps { display: grid; gap: 24px; }
+.step-header { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.step-header h3 { font-size: 23px; font-weight: 600; line-height: 1.2; margin: 0; }
+.step-header .eyebrow { margin-bottom: 5px; }
+.instruction { margin: 20px 0; max-width: 790px; }
+.prompt { white-space: pre-wrap; overflow-wrap: anywhere; font-family: 'NeuSans', system-ui, sans-serif; font-size: 16px; line-height: 1.6; background: var(--colour-brand-ivory-paper); border: 1px solid var(--colour-brand-mist-green); border-radius: var(--radius-md); padding: 24px; margin: 0; }
+.copy-status { min-height: 1.4em; font-size: 14px; margin: 8px 0 0; }
+.debrief { margin-top: 32px; }
+.debrief h3 { font-size: 21px; font-weight: 600; margin: 0 0 8px; }
+.debrief p { margin: 0; }
+.download-content { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.download-content p { max-width: 620px; margin: 0 0 14px; }
+.download-note { font-size: 14px; margin-top: 14px !important; }
+.footer { padding-block: 28px; font-size: 14px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.manual-copy { width: min(90vw, 700px); background: var(--colour-brand-ivory-paper); color: var(--colour-brand-inkwell); border: 1px solid var(--colour-brand-mist-green); border-radius: var(--radius-lg); padding: 28px; }
+.manual-copy textarea { width: 100%; min-height: 280px; padding: 16px; margin: 16px 0; font: inherit; border: 1px solid var(--colour-brand-inkwell); background: var(--colour-brand-white); color: var(--colour-brand-inkwell); }
+.manual-copy h2 { font-size: 24px; margin: 0 0 12px; }
+.manual-copy p { margin: 0; }
+.clipboard-buffer { position: fixed; top: 0; left: -9999px; }
+@media (max-width: 640px) { .wrap { width: calc(100% - 32px); } .header { padding-block: 14px; gap: 12px; } .header nav { gap: 16px; font-size: 14px; } .hero { padding-block: 34px; } .hero-intro { font-size: 18px; } .profile { align-items: flex-start; gap: 18px; flex-wrap: wrap; } .portrait { width: 95px; height: 115px; } .profile-text { flex: 1; min-width: 200px; } .profile h2 { font-size: 24px; } .section { padding-block: 34px; } .step-header { align-items: flex-start; flex-direction: column; gap: 16px; } .step-header h3 { font-size: 21px; } .prompt { padding: 18px; font-size: 15px; } .download-content { flex-direction: column; align-items: flex-start; gap: 20px; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media print { .header nav, .contact-actions, [data-copy], .copy-status { display: none; } .steps article { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#activity">Skip to the activity</a>
+<header class="wrap header"><a class="logo-link" href="https://www.affinda.com/" aria-label="Affinda website"><af-logo></af-logo></a><nav aria-label="Page navigation"><a href="../../#resources">Event page</a><a href="#activity">Activity prompts</a><a href="#download">Skill download</a></nav></header>
+<main>
+<af-section theme="inkwell" padding="none" container="false"><div class="wrap hero"><p class="eyebrow">OpenAI Codex Community · Adelaide · 15 October 2026</p><h1>Building a reliable skill</h1><p class="hero-intro">Choose a repeated task. Define a useful result. Test it, give feedback and check it again.</p><div class="profile"><img class="portrait" src="portrait.jpg" alt="Laurence Wood" width="132" height="156"><div class="profile-text"><h2>Laurence Wood</h2><p>AI Training Facilitator · Affinda Deployment</p><div class="contact-actions"><af-button id="connect" href="https://www.linkedin.com/in/laurence-wood-0944bb12/" variant="primary">Connect with me</af-button><a class="contact-email" href="mailto:laurence.wood@affinda.com">laurence.wood@affinda.com</a></div></div></div></div></af-section>
+<section class="wrap section" id="activity" aria-labelledby="activity-title"><p class="eyebrow">Try it yourself</p><h2 class="section-heading" id="activity-title">Draft a skill of your own</h2><p class="section-intro">Aim for a first skill draft and one useful test during the session. Use the fourth prompt to refine it after reviewing the result.</p><div class="getting-started"><p>If you already have a small, repeatable workflow you understand well, start at Step 2. Otherwise, use Step 1 to help you choose and scope one.</p><p>Continue with the remaining prompts in order in the same conversation. Paste each prompt into your AI tool and review its response before moving on.</p><p>Replace the text in square brackets with your own details. If skill creation isn’t available, prompt 2 asks for a draft you can develop further.</p></div><div class="steps"><article aria-labelledby="step-1"><af-card theme="white"><div class="step-header"><div><p class="eyebrow">Step 1</p><h3 id="step-1">Choose and scope the workflow</h3></div><af-button variant="secondary" size="thin" data-copy="prompt-1">Copy prompt 1</af-button></div><p class="instruction">Choose a repeated task you understand well enough to review. Use an existing conversation with a completed task, or describe a task you do regularly. Read the options and choose one you can assess.</p><pre id="prompt-1" class="prompt" tabindex="0">Help me identify a small, repeatable workflow for a skill.
+
+Use the tasks or examples available in this conversation or
+accessible sources. Say what you used. If there isn’t enough
+context, ask me to describe one task I do regularly.
+
+Suggest up to three options. For each, explain:
+- The specific job and required inputs
+- The output I would receive
+- What is outside its scope
+- How I could check whether it worked
+
+Recommend one manageable option for a first attempt.</pre><p class="copy-status" id="status-1" role="status" aria-live="polite"></p></af-card></article>
+<article aria-labelledby="step-2"><af-card theme="white"><div class="step-header"><div><p class="eyebrow">Step 2</p><h3 id="step-2">Define success and create the first draft</h3></div><af-button variant="secondary" size="thin" data-copy="prompt-2">Copy prompt 2</af-button></div><p class="instruction">Replace [option or workflow] with your choice. Read the proposed checks. If they say “high quality”, “professional” or “accurate”, ask what that means for your task.</p><pre id="prompt-2" class="prompt" tabindex="0">I choose [option or workflow].
+
+Define a useful result and up to five observable checks.
+Include what should happen when information is missing or
+the request cannot be completed. Ask up to two essential questions.
+
+Then use the available skill-creation workflow to create a small
+first version. Include when to use it, inputs, steps, output
+requirements and review checks.
+
+If skill creation isn’t available here, draft the SKILL.md content
+and explain what remains to make it usable.
+
+Distinguish reusable instructions from requirements for this example.</pre><p class="copy-status" id="status-2" role="status" aria-live="polite"></p></af-card></article>
+<article aria-labelledby="step-3"><af-card theme="white"><div class="step-header"><div><p class="eyebrow">Step 3</p><h3 id="step-3">Run and inspect one test</h3></div><af-button variant="secondary" size="thin" data-copy="prompt-3">Copy prompt 3</af-button></div><p class="instruction">Review the actual output yourself against the source and agreed checks. Find one thing it handled well or one thing you would change.</p><pre id="prompt-3" class="prompt" tabindex="0">Suggest three short test inputs: a normal case, a difficult
+variation and a case with missing information. State what
+I should inspect before running them.
+
+Run the normal case first. Keep the actual output.
+
+Compare it with the source and agreed checks. Report what passed,
+what failed and what remains uncertain, with specific evidence.
+Confirm whether the skill was actually used, if observable.
+
+Don’t change the skill during this first test.</pre><p class="copy-status" id="status-3" role="status" aria-live="polite"></p></af-card></article>
+<article aria-labelledby="step-4"><af-card theme="white"><div class="step-header"><div><p class="eyebrow">After the first test</p><h3 id="step-4">Refine and check again</h3></div><af-button variant="secondary" size="thin" data-copy="prompt-4">Copy prompt 4</af-button></div><p class="instruction">Replace [feedback] with your own observations. Review the proposed change and agree it before continuing. Compare the new result with an earlier case.</p><pre id="prompt-4" class="prompt" tabindex="0">Here is my feedback: [feedback].
+
+Identify the reason behind the correction. Propose the smallest
+useful skill change and explain whether it applies generally
+or only to this case.
+
+Apply the agreed change, rerun the relevant case and test an
+earlier case. Keep the actual results and flag unresolved issues.</pre><p class="copy-status" id="status-4" role="status" aria-live="polite"></p></af-card></article></div><div class="debrief"><h3>Before you finish</h3><p>What must a useful result preserve? What would you test next?<br>Your first draft will still need testing and review before you rely on it.</p></div></section>
+<af-section theme="mist-green" padding="none" container="false"><section class="wrap section" id="download" aria-labelledby="download-title"><div class="download-content"><div><p class="eyebrow">The example from the talk</p><h2 class="section-heading" id="download-title">UI element trimmer</h2><p>Isolates an interface item from an existing screenshot, preserves the captured interface and adds a consistent shadow on a transparent background.</p><p class="download-note">This download is mainly for exploring the skill’s instructions and structure. Unzip it and read SKILL.md to see the steps, checks and test cases.</p><p class="download-note">To run the scripts, you’ll need Python installed, along with Pillow and NumPy.</p></div><div><af-button id="download-skill" href="ui-element-trimmer.zip" variant="primary">Download the skill ZIP</af-button><p class="download-note">ui-element-trimmer.zip · 36 KB</p></div></div></section></af-section>
+</main>
+<footer class="wrap footer"><span>Laurence Wood · Affinda Deployment</span><a href="#activity">Back to the activity</a></footer>
+<dialog class="manual-copy" id="manual-copy" aria-labelledby="manual-title"><h2 id="manual-title">Copy this prompt</h2><p>Your browser couldn’t copy automatically. Select the text below and copy it.</p><textarea readonly aria-label="Prompt to copy"></textarea><af-button id="close-copy" variant="secondary">Close</af-button></dialog>
+<noscript><p class="wrap">JavaScript is disabled. You can select and copy each prompt directly.</p></noscript>
+<script>
+document.querySelectorAll('[data-copy]').forEach(button => {
+ button.addEventListener('click', async () => {
+  const id = button.dataset.copy;
+  const text = document.getElementById(id).textContent;
+  const status = document.getElementById('status-' + id.split('-')[1]);
+  let copied = false;
+  if (navigator.clipboard && window.isSecureContext) {
+   try { await navigator.clipboard.writeText(text); copied = true; } catch (error) { /* Use the fallback below. */ }
+  }
+  if (!copied) {
+   const buffer = document.createElement('textarea');
+   buffer.value = text; buffer.className = 'clipboard-buffer';
+   document.body.appendChild(buffer); buffer.focus(); buffer.select();
+   try { copied = document.execCommand('copy'); } catch (error) { copied = false; }
+   buffer.remove();
+   button.shadowRoot?.querySelector('button')?.focus();
+  }
+  if (copied) {
+   status.textContent = 'Copied. Paste it into your conversation.';
+   button.textContent = 'Copied';
+   window.setTimeout(() => { button.textContent = 'Copy prompt ' + id.split('-')[1]; }, 2000);
+  } else {
+   status.textContent = 'Select and copy the prompt below.';
+   const dialog = document.getElementById('manual-copy');
+   const field = dialog.querySelector('textarea'); field.value = text;
+   dialog.showModal(); field.focus(); field.select();
+  }
+ });
+});
+document.getElementById('close-copy').addEventListener('click', () => document.getElementById('manual-copy').close());
+customElements.whenDefined('af-button').then(() => requestAnimationFrame(() => {
+ const download = document.getElementById('download-skill').shadowRoot?.querySelector('a');
+ if (download) download.download = 'ui-element-trimmer.zip';
+}));
+</script>
+</body>
+</html>
