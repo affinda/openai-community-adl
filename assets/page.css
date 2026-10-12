@@ -59,23 +59,6 @@ af-hero h1 {
   color: var(--colour-tints-inkwell-350, #60767b);
 }
 
-.resources {
-  list-style: none;
-  margin: var(--space-2) 0 0;
-  padding: var(--space-4) 0 0;
-  border-top: 1px solid var(--colour-tints-mist-green-300);
-  display: grid;
-  gap: var(--space-2);
-}
-
-.resources a {
-  color: inherit;
-  text-underline-offset: 3px;
-}
-
-.resources-empty {
-  color: var(--colour-tints-inkwell-350, #60767b);
-}
 
 @media (max-width: 560px) {
   .agenda li {
@@ -90,5 +73,29 @@ af-hero h1 {
     position: sticky;
     top: 120px;
     align-self: start;
+  }
+}
+
+/* Speakers: the social tiles, as designed. */
+.speaker-tiles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-6);
+}
+
+.speaker-tiles img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-xl, 24px);
+}
+
+
+@media (max-width: 991px) {
+  .speaker-tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

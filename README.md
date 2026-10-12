@@ -6,50 +6,40 @@ Stone & Chalk Adelaide).
 - **Live:** https://www.affinda.com/events/2026/openai-community-adl/
 - **Direct:** https://affinda.github.io/openai-community-adl/
 
-Every push to `main` goes live in about a minute. affinda.com serves the same
+Every push to `main` goes live in a minute or two (GitHub Pages publishes the branch directly). affinda.com serves the same
 content, so you don't need to change the Affinda website.
 
-## Add your talk resources
+## Add your files
 
-Each talk has a folder and a block in `index.html`:
+Each talk has a folder:
 
-| Talk | Folder | Block in `index.html` |
-|---|---|---|
-| New tools and features from OpenAI DevDay (Matt) | `talks/whats-new-devday/` | `TALK: What's new from OpenAI DevDay` |
-| What happens when everyone can build (Sophia) | `talks/everyone-can-build/` | `TALK: What happens when everyone can build` |
-| Making skills you can rely on (Laurence) | `talks/reliable-skills/` | `TALK: Making skills you can rely on` |
-| A closer look at Hugging Face (Andrew) | `talks/dev-dive/` | `TALK: Dev dive` |
+| Talk | Folder |
+|---|---|
+| New tools and features from OpenAI DevDay (Matt) | `talks/whats-new-devday/` |
+| What happens when everyone can build (Sophia) | `talks/everyone-can-build/` |
+| Building a reliable skill (Laurence) | `talks/reliable-skills/` |
+| Resourceful agents, open doors (Andrew) | `talks/dev-dive/` |
 
 1. Put your files in your talk's folder: slides (PDF), HTML artifacts,
-   downloads, anything static.
-2. In your block in `index.html`, replace the "Resources coming soon." line
-   with one `<li>` for each resource:
-
-   ```html
-   <ul class="resources">
-     <li><a href="talks/reliable-skills/slides.pdf">Slides (PDF)</a></li>
-     <li><a href="talks/reliable-skills/skill-checklist.html">Skill checklist (interactive)</a></li>
-     <li><a href="talks/reliable-skills/example-skill.zip" download>Example skill (ZIP)</a></li>
-   </ul>
-   ```
-
-3. Commit and push to `main`. Check the **Actions** tab: when the run is
-   green, the change is live.
+   downloads, anything static. Pull first (`git pull`).
+2. Commit and push to `main`. GitHub Pages republishes the branch in a
+   minute or two (see **Deployments** on the repo page).
+3. Share the link. A file at `talks/reliable-skills/demo.html` is live at
+   https://www.affinda.com/events/2026/openai-community-adl/talks/reliable-skills/demo.html
 
 Rules that keep the page working:
 
-- **Use relative links only.** Write `talks/...`, never `/talks/...`. The
-  page is served from two addresses, and a leading `/` breaks one of them.
-- **Edit only your own block** so you don't get merge conflicts with each
-  other. Pull before you start (`git pull`).
+- **Use relative links only** inside your HTML files (`./style.css`, never
+  `/style.css`). The site is served from two addresses, and a leading `/`
+  breaks one of them.
 - **Everything here is public.** Don't commit anything confidential, client
   material, API keys or `.env` files.
 - **Keep files under 100 MB.** GitHub rejects anything bigger. For large
   videos, link to them instead.
-- **HTML artifacts** can be self-contained `.html` files. Put them in your
-  folder and link to them like any other file. If you want a full page with
-  its own assets, make a subfolder with an `index.html` and link to the
-  folder with a trailing slash (`talks/reliable-skills/demo/`).
+- **A full page with its own assets** goes in a subfolder with an
+  `index.html`; link to the folder with a trailing slash
+  (`talks/reliable-skills/demo/`).
+- **Changing `index.html`** (the event page itself): check with Elle first.
 
 ## Brand
 

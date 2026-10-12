@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Codex Community Dev Day Adelaide | Affinda</title>
-  <meta name="description" content="Codex Community Dev Day in Adelaide on Thursday 15 October 2026. Agenda, venue details and talk resources from the speakers.">
+  <meta name="description" content="Codex Community Dev Day in Adelaide on Thursday 15 October 2026. Agenda, speakers and venue details.">
   <meta property="og:title" content="Codex Community Dev Day Adelaide">
   <meta property="og:description" content="An evening exploring the latest from OpenAI and how AI is changing the way we build. Thursday 15 October, Stone & Chalk Adelaide.">
   <meta property="og:type" content="website">
@@ -21,13 +21,13 @@
   <af-navbar theme="inkwell" variant="strip" show-default-logo="false">
     <a slot="logo" href="https://www.affinda.com/" aria-label="Affinda home"><af-logo></af-logo></a>
     <af-nav-item slot="start" href="#agenda">Agenda</af-nav-item>
-    <af-nav-item slot="start" href="#resources">Talk resources</af-nav-item>
+    <af-nav-item slot="start" href="#speakers">Speakers</af-nav-item>
     <af-nav-item slot="start" href="#venue">Venue</af-nav-item>
     <af-button slot="button" href="https://luma.com/avdxttft" size="thin">Register</af-button>
     <af-button slot="mobile-button" href="https://luma.com/avdxttft" size="thin">Register</af-button>
     <af-nav-accordion slot="mobile-menu">
       <af-nav-accordion-item item-id="m-agenda" label="Agenda" href="#agenda"></af-nav-accordion-item>
-      <af-nav-accordion-item item-id="m-resources" label="Talk resources" href="#resources"></af-nav-accordion-item>
+      <af-nav-accordion-item item-id="m-speakers" label="Speakers" href="#speakers"></af-nav-accordion-item>
       <af-nav-accordion-item item-id="m-venue" label="Venue" href="#venue"></af-nav-accordion-item>
     </af-nav-accordion>
   </af-navbar>
@@ -39,7 +39,7 @@
       <span slot="description">An evening exploring the latest from OpenAI and how AI is changing the way we build. Stay for pizza, drinks and conversations with the Adelaide community.</span>
       <af-button-group slot="buttons">
         <af-button href="https://luma.com/avdxttft">Register on Luma</af-button>
-        <af-button href="#resources" variant="secondary">Talk resources</af-button>
+        <af-button href="#agenda" variant="secondary">See the agenda</af-button>
       </af-button-group>
       <img slot="illustration" src="assets/team-leader-inkwell.svg" alt="">
     </af-hero>
@@ -79,7 +79,7 @@
             <span class="agenda-time">5:30 pm</span>
             <div class="agenda-body">
               <span class="agenda-title">Welcome and introduction to Affinda</span>
-              <span class="agenda-speaker">Elle Dunbar, Affinda</span>
+              <span class="agenda-speaker">Elle Dunbar, Staff Product Engineer, Affinda</span>
             </div>
           </li>
           <li>
@@ -94,14 +94,14 @@
             <div class="agenda-body">
               <span class="agenda-group">Beyond code and software development</span>
               <span class="agenda-title">What happens when everyone can build</span>
-              <span class="agenda-speaker">Sophia Ng, AI Enablement SME</span>
+              <span class="agenda-speaker">Sophia Ng, AI Training Facilitator</span>
             </div>
           </li>
           <li>
             <span class="agenda-time">6:35 pm</span>
             <div class="agenda-body">
               <span class="agenda-group">Beyond code and software development</span>
-              <span class="agenda-title">Making skills you can rely on</span>
+              <span class="agenda-title">Building a reliable skill</span>
               <span class="agenda-speaker">Laurence Wood, AI Training Facilitator</span>
             </div>
           </li>
@@ -109,8 +109,8 @@
             <span class="agenda-time">7:05 pm</span>
             <div class="agenda-body">
               <span class="agenda-group">Dev dive</span>
-              <span class="agenda-title">A closer look at Hugging Face, with Q&amp;A</span>
-              <span class="agenda-speaker">Andrew Bird, Affinda</span>
+              <span class="agenda-title">Resourceful agents, open doors: what a season of AI mischief teaches builders</span>
+              <span class="agenda-speaker">Andrew Bird, Head of AI, Affinda, with Q&amp;A</span>
             </div>
           </li>
           <li>
@@ -130,72 +130,20 @@
       </af-grid>
     </af-section>
 
-    <!-- ===== Talk resources =====
-         Each talk has its own block below and its own folder under talks/.
-         To add a resource: put the file in your talk's folder, then add a
-         <li> to your block's list. See README.md for examples. -->
-    <af-section theme="mist-green" padding="default" id="resources">
+    <!-- ===== Speakers ===== -->
+    <af-section theme="white-ivory" padding="default" id="speakers">
       <af-typography-lockup heading-size="2" max-width="640">
-        <span slot="eyebrow" class="eyebrow">Talk resources</span>
-        <h2>Take the talks home with you</h2>
-        <span slot="description">Slides, demos and downloads from the speakers. We'll add more during and after the event.</span>
+        <span slot="eyebrow" class="eyebrow">Speakers</span>
+        <h2>Who you'll hear from</h2>
+        <span slot="description">Hosted by Matt McKinlay, Codex Ambassador, who opens the evening with the latest from OpenAI DevDay.</span>
       </af-typography-lockup>
       <af-spacer size="8"></af-spacer>
-      <af-grid columns="2" columns-md="1" gap="6">
-
-        <!-- TALK: What's new from OpenAI DevDay (Matt McKinlay) | folder: talks/whats-new-devday/ -->
-        <af-card theme="white" id="whats-new-devday">
-          <af-stack gap="3">
-            <span class="eyebrow">Welcome · 5:45 pm</span>
-            <af-heading level="4"><h3>New tools and features from OpenAI DevDay</h3></af-heading>
-            <af-text variant="small">Matt McKinlay, Codex Ambassador</af-text>
-            <ul class="resources">
-              <li class="resources-empty">Resources coming soon.</li>
-            </ul>
-          </af-stack>
-        </af-card>
-        <!-- END TALK: whats-new-devday -->
-
-        <!-- TALK: What happens when everyone can build (Sophia Ng) | folder: talks/everyone-can-build/ -->
-        <af-card theme="white" id="everyone-can-build">
-          <af-stack gap="3">
-            <span class="eyebrow">Beyond code · 6:05 pm</span>
-            <af-heading level="4"><h3>What happens when everyone can build</h3></af-heading>
-            <af-text variant="small">Sophia Ng, AI Enablement SME</af-text>
-            <ul class="resources">
-              <li class="resources-empty">Resources coming soon.</li>
-            </ul>
-          </af-stack>
-        </af-card>
-        <!-- END TALK: everyone-can-build -->
-
-        <!-- TALK: Making skills you can rely on (Laurence Wood) | folder: talks/reliable-skills/ -->
-        <af-card theme="white" id="reliable-skills">
-          <af-stack gap="3">
-            <span class="eyebrow">Beyond code · 6:35 pm</span>
-            <af-heading level="4"><h3>Making skills you can rely on</h3></af-heading>
-            <af-text variant="small">Laurence Wood, AI Training Facilitator</af-text>
-            <ul class="resources">
-              <li class="resources-empty">Resources coming soon.</li>
-            </ul>
-          </af-stack>
-        </af-card>
-        <!-- END TALK: reliable-skills -->
-
-        <!-- TALK: Dev dive (Andrew Bird) | folder: talks/dev-dive/ -->
-        <af-card theme="white" id="dev-dive">
-          <af-stack gap="3">
-            <span class="eyebrow">Dev dive · 7:05 pm</span>
-            <af-heading level="4"><h3>A closer look at Hugging Face</h3></af-heading>
-            <af-text variant="small">Andrew Bird, Affinda</af-text>
-            <ul class="resources">
-              <li class="resources-empty">Resources coming soon.</li>
-            </ul>
-          </af-stack>
-        </af-card>
-        <!-- END TALK: dev-dive -->
-
-      </af-grid>
+      <ul class="speaker-tiles">
+        <li><img src="assets/speakers/tile-elle-dunbar.jpg" width="800" height="800" loading="lazy" alt="Meet me at Codex Community Dev Day on 15 October 2026. Elle Dunbar, Staff Product Engineer."></li>
+        <li><img src="assets/speakers/tile-sophia-ng.jpg" width="800" height="800" loading="lazy" alt="I'm speaking at Codex Community Dev Day on 15 October 2026: What happens when everyone can build. Sophia Ng, AI Training Facilitator."></li>
+        <li><img src="assets/speakers/tile-laurence-wood.jpg" width="800" height="800" loading="lazy" alt="I'm speaking at Codex Community Dev Day on 15 October 2026: Building a reliable skill. Laurence Wood, AI Training Facilitator."></li>
+        <li><img src="assets/speakers/tile-andrew-bird.jpg" width="800" height="800" loading="lazy" alt="I'm speaking at Codex Community Dev Day on 15 October 2026: Resourceful agents, open doors: what a season of AI mischief teaches builders. Andrew Bird, Head of AI, Affinda."></li>
+      </ul>
     </af-section>
 
     <!-- ===== Venue and hosts ===== -->
@@ -234,7 +182,7 @@
       <af-social-link slot="social" icon="linkedin" label="LinkedIn" href="https://www.linkedin.com/company/affinda/"></af-social-link>
       <af-footer-column slot="nav" heading="This event">
         <af-footer-link href="#agenda">Agenda</af-footer-link>
-        <af-footer-link href="#resources">Talk resources</af-footer-link>
+        <af-footer-link href="#speakers">Speakers</af-footer-link>
         <af-footer-link href="#venue">Venue</af-footer-link>
         <af-footer-link href="https://luma.com/avdxttft" external>Register on Luma</af-footer-link>
       </af-footer-column>
