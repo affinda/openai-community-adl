@@ -99,3 +99,18 @@ af-hero h1 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* Links to a talk's resources, under its agenda slot. */
+.agenda-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-5);
+  margin-top: var(--space-2);
+  font-size: 15px;
+}
+
+.agenda-links a {
+  color: inherit;
+  text-decoration-color: var(--colour-brand-soft-clay);
+  text-underline-offset: 3px;
+}
