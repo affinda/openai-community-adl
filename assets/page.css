@@ -114,3 +114,21 @@ af-hero h1 {
   text-decoration-color: var(--colour-brand-soft-clay);
   text-underline-offset: 3px;
 }
+
+/* LinkedIn link under each speaker tile. */
+.speaker-tile {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+}
+
+.speaker-linkedin {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  justify-self: start;
+  font-size: 15px;
+  color: inherit;
+  text-decoration-color: var(--colour-brand-soft-clay);
+  text-underline-offset: 3px;
+}

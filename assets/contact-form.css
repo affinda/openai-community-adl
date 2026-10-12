@@ -1,0 +1,186 @@
+/* Contact form styles copied from the Affinda website
+   (src/components/ContactFormCard.astro) so the HubSpot form matches
+   affinda.com. Keep in sync if the site changes. */
+  /* Mist-green card, matches the live /contact form-card treatment but sized
+     for embedding (single column, lighter padding). */
+  .contact-form-card {
+    background: var(--colour-brand-mist-green, #C6D5D1);
+    border-radius: var(--radius-xl, 24px);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    box-sizing: border-box;
+  }
+  .contact-form-card__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .contact-form-card__heading {
+    font-family: 'NeuSans', sans-serif;
+    font-weight: 400;
+    font-size: var(--font-size-heading-4-fluid, clamp(20px, 0.44vw + 18.34px, 24px));
+    line-height: var(--line-height-heading-normal, 1.1);
+    letter-spacing: var(--letter-spacing-heading, -0.02em);
+    color: var(--colour-brand-inkwell, #14343B);
+    margin: 0;
+  }
+  .contact-form-card__body {
+    font-family: 'NeuSans', sans-serif;
+    font-size: var(--font-size-body-medium, 16px);
+    line-height: 1.45;
+    color: var(--colour-brand-inkwell, #14343B);
+    margin: 0;
+  }
+  .hs-contact {
+    min-height: 1px;
+  }
+  @media (max-width: 767px) {
+    .contact-form-card { padding: 24px; }
+  }
+
+  /* HubSpot-injected form styles. The HubSpot script drops raw <form> markup
+     into the target with cssRequired:false, so we style it ourselves via the
+     `.hs-contact` class. Mirrors the /contact page stylesheet. */
+  .hs-contact form {
+    font-family: 'NeuSans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .hs-contact .form-columns-1,
+  .hs-contact .form-columns-2 {
+    padding: 0;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .hs-contact .form-columns-2 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .hs-contact .form-columns-2 .hs-form-field {
+    flex: 1 1 calc(50% - 10px);
+    min-width: 0;
+  }
+  @media (max-width: 767px) {
+    .hs-contact form { gap: 16px; }
+    .hs-contact .form-columns-2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .hs-contact .form-columns-2 .hs-form-field {
+      flex-basis: auto;
+      width: 100%;
+    }
+    .hs-contact input[type="submit"] { width: 100%; }
+  }
+  .hs-contact label {
+    color: var(--colour-brand-inkwell, #14343B);
+    font-family: 'NeuSans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .hs-contact label.hs-error-msg {
+    font-size: 12px;
+    line-height: 14px;
+    color: #b7391d;
+    margin-top: 4px;
+  }
+  .hs-contact .hs-error-msgs {
+    list-style: none;
+    padding: 0;
+    margin: 4px 0 0 0;
+  }
+  .hs-contact div.input,
+  .hs-contact div.input:hover {
+    padding: 0;
+    margin: 0 !important;
+    border: 0;
+    background: transparent;
+  }
+  .hs-contact input[type="text"],
+  .hs-contact input[type="email"],
+  .hs-contact input[type="tel"],
+  .hs-contact input[type="number"],
+  .hs-contact select,
+  .hs-contact textarea {
+    border-radius: var(--radius-sm, 8px);
+    border: 1px solid var(--colour-inkwell-100, #D0D6D8);
+    background: #FFF;
+    padding: 12px 16px;
+    min-height: 24px;
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: 16px;
+    font-family: 'NeuSans', sans-serif;
+    color: var(--colour-brand-inkwell, #14343B);
+    box-sizing: border-box;
+  }
+  .hs-contact input::placeholder,
+  .hs-contact textarea::placeholder {
+    color: var(--colour-inkwell-350, #60767B);
+    font-family: 'NeuSans', sans-serif;
+    font-size: 16px;
+  }
+  .hs-contact select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='25' viewBox='0 0 24 25' fill='none'%3E%3Cpath d='M20.031 10.1258L12.531 17.6258C12.4614 17.6955 12.3787 17.7508 12.2876 17.7886C12.1966 17.8263 12.099 17.8457 12.0004 17.8457C11.9019 17.8457 11.8043 17.8263 11.7132 17.7886C11.6222 17.7508 11.5394 17.6955 11.4698 17.6258L3.96979 10.1258C3.82906 9.98504 3.75 9.79417 3.75 9.59514C3.75 9.39612 3.82906 9.20525 3.96979 9.06452C4.11052 8.92379 4.30139 8.84473 4.50042 8.84473C4.69944 8.84473 4.89031 8.92379 5.03104 9.06452L12.0004 16.0348L18.9698 9.06452C19.0395 8.99484 19.1222 8.93956 19.2132 8.90185C19.3043 8.86414 19.4019 8.84473 19.5004 8.84473C19.599 8.84473 19.6965 8.86414 19.7876 8.90185C19.8786 8.93956 19.9614 8.99484 20.031 9.06452C20.1007 9.1342 20.156 9.21693 20.1937 9.30797C20.2314 9.39902 20.2508 9.4966 20.2508 9.59514C20.2508 9.69369 20.2314 9.79127 20.1937 9.88232C20.156 9.97336 20.1007 10.0561 20.031 10.1258Z' fill='%2314343B'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 20px;
+    padding-right: 44px;
+  }
+  .hs-contact .legal-consent-container,
+  .hs-contact .hs-richtext {
+    font-size: 13px;
+    line-height: 1.4;
+    color: var(--colour-brand-inkwell, #14343B);
+  }
+  .hs-contact .legal-consent-container a,
+  .hs-contact .hs-richtext a {
+    color: inherit;
+  }
+  .hs-contact .hs-button.primary,
+  .hs-contact input[type="submit"] {
+    padding: 14px 28px;
+    height: 50px;
+    font-family: 'NeuSans', sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 20px;
+    border-radius: var(--radius-pill, 999px);
+    border: 1px solid var(--colour-brand-inkwell, #14343B);
+    background-color: var(--colour-brand-inkwell, #14343B);
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    transition: background-color .2s ease, color .2s ease;
+  }
+  .hs-contact .hs-button.primary:hover,
+  .hs-contact input[type="submit"]:hover {
+    background-color: #2a5259;
+  }
+  .hs-contact .hs-form-field { margin: 0; }
+  /* Hide the visual list bullet next to consent checkboxes. */
+  .hs-contact ul.inputs-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .hs-contact ul.inputs-list li {
+    list-style: none;
+    margin: 6px 0;
+  }
+  .hs-contact input[type="checkbox"],
+  .hs-contact input[type="radio"] {
+    margin-right: 8px;
+  }

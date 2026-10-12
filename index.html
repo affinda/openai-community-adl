@@ -13,8 +13,10 @@
        affinda.com/events/2026/openai-community-adl/. -->
   <link rel="stylesheet" href="vendor/css/dist/index.css">
   <link rel="stylesheet" href="assets/footer.css">
+  <link rel="stylesheet" href="assets/contact-form.css">
   <link rel="stylesheet" href="assets/page.css">
   <script type="module" src="vendor/wc/affinda.esm.js"></script>
+  <script type="module" src="assets/contact-form.js"></script>
 </head>
 <body>
 
@@ -23,12 +25,14 @@
     <af-nav-item slot="start" href="#agenda">Agenda</af-nav-item>
     <af-nav-item slot="start" href="#speakers">Speakers</af-nav-item>
     <af-nav-item slot="start" href="#venue">Venue</af-nav-item>
+    <af-nav-item slot="start" href="#contact">Contact</af-nav-item>
     <af-button slot="button" href="https://luma.com/avdxttft" size="thin">Register</af-button>
     <af-button slot="mobile-button" href="https://luma.com/avdxttft" size="thin">Register</af-button>
     <af-nav-accordion slot="mobile-menu">
       <af-nav-accordion-item item-id="m-agenda" label="Agenda" href="#agenda"></af-nav-accordion-item>
       <af-nav-accordion-item item-id="m-speakers" label="Speakers" href="#speakers"></af-nav-accordion-item>
       <af-nav-accordion-item item-id="m-venue" label="Venue" href="#venue"></af-nav-accordion-item>
+      <af-nav-accordion-item item-id="m-contact" label="Contact" href="#contact"></af-nav-accordion-item>
     </af-nav-accordion>
   </af-navbar>
 
@@ -143,10 +147,19 @@
       </af-typography-lockup>
       <af-spacer size="8"></af-spacer>
       <ul class="speaker-tiles">
-        <li><img src="assets/speakers/tile-elle-dunbar.jpg" width="800" height="800" loading="lazy" alt="Meet me at Codex Community Dev Day on 15 October 2026. Elle Dunbar, Staff Product Engineer."></li>
-        <li><img src="assets/speakers/tile-sophia-ng.jpg" width="800" height="800" loading="lazy" alt="I'm speaking at Codex Community Dev Day on 15 October 2026: What happens when everyone can build. Sophia Ng, AI Training Facilitator."></li>
-        <li><img src="assets/speakers/tile-laurence-wood.jpg" width="800" height="800" loading="lazy" alt="I'm speaking at Codex Community Dev Day on 15 October 2026: Building a reliable skill. Laurence Wood, AI Training Facilitator."></li>
-        <li><img src="assets/speakers/tile-andrew-bird.jpg" width="800" height="800" loading="lazy" alt="I'm speaking at Codex Community Dev Day on 15 October 2026: Resourceful agents, open doors: what a season of AI mischief teaches builders. Andrew Bird, Head of AI, Affinda."></li>
+        <li class="speaker-tile">
+          <img src="assets/speakers/tile-elle-dunbar.jpg" width="800" height="800" loading="lazy" alt="Meet me at Codex Community Dev Day on 15 October 2026. Elle Dunbar, Staff Product Engineer.">
+        </li>
+        <li class="speaker-tile">
+          <img src="assets/speakers/tile-sophia-ng.jpg" width="800" height="800" loading="lazy" alt="I'm speaking at Codex Community Dev Day on 15 October 2026: What happens when everyone can build. Sophia Ng, AI Training Facilitator.">
+        </li>
+        <li class="speaker-tile">
+          <img src="assets/speakers/tile-laurence-wood.jpg" width="800" height="800" loading="lazy" alt="I'm speaking at Codex Community Dev Day on 15 October 2026: Building a reliable skill. Laurence Wood, AI Training Facilitator.">
+          <a class="speaker-linkedin" href="https://www.linkedin.com/in/laurence-wood-0944bb12/" target="_blank" rel="noopener"><af-icon name="linkedin" size="20" aria-hidden="true"></af-icon><span>Laurence Wood on LinkedIn</span></a>
+        </li>
+        <li class="speaker-tile">
+          <img src="assets/speakers/tile-andrew-bird.jpg" width="800" height="800" loading="lazy" alt="I'm speaking at Codex Community Dev Day on 15 October 2026: Resourceful agents, open doors: what a season of AI mischief teaches builders. Andrew Bird, Head of AI, Affinda.">
+        </li>
       </ul>
     </af-section>
 
@@ -165,6 +178,19 @@
           <span slot="description">Matt McKinlay is a Codex Ambassador and is hosting the evening. Affinda is an OpenAI Advanced Partner that helps organisations harness AI to transform business processes.</span>
           <af-button slot="buttons" variant="tertiary" href="https://www.affinda.com/">About Affinda</af-button>
         </af-typography-lockup>
+      </af-grid>
+    </af-section>
+    <!-- ===== Contact ===== -->
+    <af-section theme="white" padding="default" id="contact">
+      <af-grid columns="2" columns-md="1" gap="8">
+        <af-typography-lockup heading-size="2" max-width="440">
+          <span slot="eyebrow" class="eyebrow">Contact</span>
+          <h2>Talk to the Affinda team</h2>
+          <span slot="description">Questions about the evening, or want to talk about putting AI to work in your organisation? Send us a note and we'll get back to you.</span>
+        </af-typography-lockup>
+        <div class="contact-form-card">
+          <div class="hs-contact" id="hs-contact-form"></div>
+        </div>
       </af-grid>
     </af-section>
   </main>
@@ -188,6 +214,7 @@
         <af-footer-link href="#agenda">Agenda</af-footer-link>
         <af-footer-link href="#speakers">Speakers</af-footer-link>
         <af-footer-link href="#venue">Venue</af-footer-link>
+        <af-footer-link href="#contact">Contact</af-footer-link>
         <af-footer-link href="https://luma.com/avdxttft" external>Register on Luma</af-footer-link>
       </af-footer-column>
       <af-footer-column slot="nav" heading="Products">
