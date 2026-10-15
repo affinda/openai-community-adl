@@ -27,8 +27,10 @@ a { color: inherit; text-underline-offset: .22em; }
 .hero { color: var(--colour-brand-ivory-paper); }
 .hero h1, .hero h2, .hero p, .hero .contact-email { color: inherit; }
 /* Same as the site's .eyebrow rule (website src/styles/october.css). */
-.eyebrow { display: inline-block; font-size: 12.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--colour-tints-soft-clay-600); margin: 0 0 14px; }
+.eyebrow:not(:where([class*="sc-af-"])) { display: inline-block; font-size: 12.5px; line-height: 20px; letter-spacing: .06em; text-transform: uppercase; color: var(--colour-tints-soft-clay-600); margin: 0 0 var(--space-4); }
 .hero .eyebrow { color: var(--colour-brand-azure); }
+/* Inside a lockup the component sets the gap under the eyebrow. */
+af-typography-lockup .eyebrow:not(:where([class*="sc-af-"])) { margin-bottom: 0; }
 h1 { font-size: var(--font-size-heading-1-fluid, clamp(38px, 1.99vw + 30.54px, 56px)); line-height: var(--line-height-heading-tight, 1); letter-spacing: var(--letter-spacing-heading, -0.02em); font-weight: var(--font-weight-regular, 400); margin: 0 0 var(--space-6); max-width: 740px; }
 .hero-intro { max-width: 680px; font-size: var(--font-size-body-xlarge, 22px); line-height: var(--line-height-body-xlarge, 28px); margin: 0; }
 .profile { display: flex; align-items: center; gap: var(--space-6); padding: var(--space-8) 0 0; }
@@ -44,13 +46,12 @@ h1 { font-size: var(--font-size-heading-1-fluid, clamp(38px, 1.99vw + 30.54px, 5
 .steps { display: grid; gap: var(--space-6); }
 .step-header { display: flex; align-items: center; justify-content: space-between; gap: var(--space-5); }
 .step-header h3 { font-size: var(--font-size-heading-4-fluid, clamp(20px, 0.44vw + 18.34px, 24px)); line-height: var(--line-height-heading-normal, 1.1); letter-spacing: var(--letter-spacing-heading, -0.02em); font-weight: var(--font-weight-regular, 400); margin: 0; }
-.step-header .eyebrow { margin-bottom: var(--space-1); }
 .instruction { margin: var(--space-5) 0; max-width: 790px; }
 .prompt { white-space: pre-wrap; overflow-wrap: anywhere; font-family: var(--typography-bodyfont, 'NeuSans', sans-serif); font-size: var(--font-size-body-medium, 16px); line-height: var(--line-height-body-medium, 24px); background: var(--af-background-level-1, var(--colour-mistgreen-200)); border-radius: var(--radius-md); padding: var(--space-6); margin: 0; }
 .prompt-wrap { position: relative; }
 .prompt-wrap .prompt { padding-right: calc(var(--space-8) * 2); }
 .prompt-copy { position: absolute; top: var(--space-3); right: var(--space-3); }
-.banner-eyebrow { display: block; font-family: var(--typography-primaryfont, 'NeuSans', sans-serif); font-size: 12.5px; font-weight: 400; line-height: 1.4; letter-spacing: .06em; text-transform: uppercase; color: var(--colour-brand-inkwell); margin-bottom: 14px; }
+.banner-eyebrow { display: block; font-family: var(--typography-primaryfont, 'NeuSans', sans-serif); font-size: 12.5px; font-weight: 400; line-height: 20px; letter-spacing: .06em; text-transform: uppercase; color: var(--colour-brand-inkwell); margin-bottom: var(--space-4); }
 .copy-status { min-height: 1.4em; font-size: var(--font-size-body-small, 14px); line-height: var(--line-height-body-small, 20px); margin: var(--space-2) 0 0; }
 /* Takes no space until it has a message, so the card ends at the prompt box. */
 .copy-status:empty { position: absolute; min-height: 0; margin: 0; }
