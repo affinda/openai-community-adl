@@ -64,6 +64,12 @@ h1 { font-size: var(--font-size-heading-1-fluid, clamp(38px, 1.99vw + 30.54px, 5
 .manual-copy h2 { font-size: var(--font-size-heading-4-fluid, clamp(20px, 0.44vw + 18.34px, 24px)); line-height: var(--line-height-heading-normal, 1.1); letter-spacing: var(--letter-spacing-heading, -0.02em); font-weight: var(--font-weight-regular, 400); margin: 0 0 var(--space-3); }
 .manual-copy p { margin: 0; }
 .clipboard-buffer { position: fixed; top: 0; left: -9999px; }
+@media (max-width: 768px) {
+ af-card { --af-card-padding: var(--space-5); --af-card-gap: var(--space-4); }
+ .instruction { margin: 0; }
+ .prompt-wrap .prompt { padding-right: calc(var(--space-6) * 2); }
+ .prompt-copy { top: var(--space-2); right: var(--space-2); }
+}
 @media (max-width: 640px) { .wrap { width: calc(100% - 32px); } .profile { align-items: flex-start; gap: var(--space-4); flex-wrap: wrap; } .portrait { width: 95px; height: 115px; } .profile-text { flex: 1; min-width: 200px; } .step-header { align-items: flex-start; flex-direction: column; gap: var(--space-4); } .prompt { padding: var(--space-4); } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 @media print { af-navbar, .october-footer, .contact-actions, [data-copy], .copy-status { display: none; } .steps article { break-inside: avoid; } }
@@ -88,9 +94,7 @@ h1 { font-size: var(--font-size-heading-1-fluid, clamp(38px, 1.99vw + 30.54px, 5
 <af-section theme="inkwell" padding="tight"><div class="hero measure"><p class="eyebrow">OpenAI Codex Community · Adelaide · 15 October 2026</p><h1>Building a reliable skill</h1><p class="hero-intro">Choose a repeated task. Define a useful result. Test it, give feedback and check it again.</p><div class="profile"><img class="portrait" src="portrait.jpg" alt="Laurence Wood" width="132" height="156"><div class="profile-text"><h2>Laurence Wood</h2><p>AI Training Facilitator · Affinda Deployment</p><div class="contact-actions"><af-button id="connect" href="https://www.linkedin.com/in/laurence-wood-0944bb12/" variant="primary">Connect with me</af-button><a class="contact-email" href="mailto:laurence.wood@affinda.com">laurence.wood@affinda.com</a></div></div></div></div></af-section>
 <af-section theme="white-ivory" padding="default"><section class="measure" id="activity" aria-labelledby="activity-title"><p class="eyebrow">Try it yourself</p><h2 class="section-heading" id="activity-title">Draft a skill of your own</h2><p class="section-intro">The main aim is to create a first draft of your skill using Step 2. If you have time, describe a realistic example you could use to test it and what a useful result would look like. Running the test and inspecting its output are optional if time allows.</p><div class="getting-started"><p>If you already have a small, repeatable workflow you understand well, start at Step 2. Otherwise, use Step 1 to help you choose and scope one.</p><p>Work on your skill draft using Step 2. Use Step 3 to plan a realistic test if you have time. Continue in the same conversation and review each response before moving on. You can return to the testing and refinement prompts after the session. Try the saved skill in a fresh chat, without the examples and corrections from the chat where you built it.</p><p>Replace the text in square brackets with your own details. If skill creation isn’t available, prompt 2 asks for a draft you can develop further.</p></div><div class="steps"><article aria-labelledby="step-1"><af-card theme="white"><div class="step-header"><div><p class="eyebrow">Step 1</p><h3 id="step-1">Choose and scope the workflow</h3></div><af-button variant="secondary" size="thin" data-copy="prompt-1">Copy prompt 1</af-button></div><p class="instruction">Choose a repeated task you understand well enough to review. Use an existing conversation with a completed task, or describe a task you do regularly. Read the options and choose one you can assess.</p><div class="prompt-wrap"><af-icon-button class="prompt-copy" variant="ghost" size="small" aria-label="Copy prompt 1" data-copy="prompt-1" data-copy-icon><svg class="copy-glyph" width="20" height="20" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path fill="currentColor" d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"/></svg></af-icon-button><pre id="prompt-1" class="prompt" tabindex="0">Help me identify a small, repeatable workflow for a skill.
 
-Use the tasks or examples available in this conversation or
-accessible sources. Say what you used. If there isn’t enough
-context, ask me to describe one task I do regularly.
+Use the tasks or examples available in this conversation or accessible sources. Say what you used. If there isn’t enough context, ask me to describe one task I do regularly.
 
 Suggest up to three options. For each, explain:
 - The specific job and required inputs
@@ -101,16 +105,11 @@ Suggest up to three options. For each, explain:
 Recommend one manageable option for a first attempt.</pre></div><p class="copy-status" id="status-1" role="status" aria-live="polite"></p></af-card></article>
 <article aria-labelledby="step-2"><af-card theme="white"><div class="step-header"><div><p class="eyebrow">Step 2</p><h3 id="step-2">Define success and create the first draft</h3></div><af-button variant="secondary" size="thin" data-copy="prompt-2">Copy prompt 2</af-button></div><p class="instruction">Replace [option or workflow] with your choice. Read the proposed checks. If they say “high quality”, “professional” or “accurate”, ask what that means for your task.</p><div class="prompt-wrap"><af-icon-button class="prompt-copy" variant="ghost" size="small" aria-label="Copy prompt 2" data-copy="prompt-2" data-copy-icon><svg class="copy-glyph" width="20" height="20" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path fill="currentColor" d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"/></svg></af-icon-button><pre id="prompt-2" class="prompt" tabindex="0">I choose [option or workflow].
 
-Define a useful result and up to five observable checks.
-Include what should happen when information is missing or
-the request cannot be completed. Ask up to two essential questions.
+Define a useful result and up to five observable checks. Include what should happen when information is missing or the request cannot be completed. Ask up to two essential questions.
 
-Then use the available skill-creation workflow to create a small
-first version. Include when to use it, inputs, steps, output
-requirements and review checks.
+Then use the available skill-creation workflow to create a small first version. Include when to use it, inputs, steps, output requirements and review checks.
 
-If skill creation isn’t available here, draft the SKILL.md content
-and explain what remains to make it usable.
+If skill creation isn’t available here, draft the SKILL.md content and explain what remains to make it usable.
 
 Distinguish reusable instructions from requirements for this example.</pre></div><p class="copy-status" id="status-2" role="status" aria-live="polite"></p></af-card></article>
 <article aria-labelledby="step-3"><af-card theme="white"><div class="step-header"><div><p class="eyebrow">Step 3</p><h3 id="step-3">Plan a test; run it if time allows</h3></div><af-button variant="secondary" size="thin" data-copy="prompt-3">Copy prompt 3</af-button></div><p class="instruction">Check that your planned test reflects a task you would actually use the skill for. If you run it, inspect the result yourself and note one thing it handled well or one thing you would change.</p><div class="prompt-wrap"><af-icon-button class="prompt-copy" variant="ghost" size="small" aria-label="Copy prompt 3" data-copy="prompt-3" data-copy-icon><svg class="copy-glyph" width="20" height="20" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path fill="currentColor" d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"/></svg></af-icon-button><pre id="prompt-3" class="prompt" tabindex="0">Suggest one realistic example I could use to test my skill. Describe the input, what a useful result would look like and what I should check. Do not run the test yet.
@@ -120,12 +119,9 @@ If I ask you to run it, keep the actual output. Compare it with the source and a
 Don’t change the skill during this first test.</pre></div><p class="copy-status" id="status-3" role="status" aria-live="polite"></p></af-card></article>
 <article aria-labelledby="step-4"><af-card theme="white"><div class="step-header"><div><p class="eyebrow">After the session</p><h3 id="step-4">Refine and check again</h3></div><af-button variant="secondary" size="thin" data-copy="prompt-4">Copy prompt 4</af-button></div><p class="instruction">Replace [feedback] with your own observations. Review the proposed change and agree it before continuing. Compare the new result with an earlier case.</p><div class="prompt-wrap"><af-icon-button class="prompt-copy" variant="ghost" size="small" aria-label="Copy prompt 4" data-copy="prompt-4" data-copy-icon><svg class="copy-glyph" width="20" height="20" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path fill="currentColor" d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"/></svg></af-icon-button><pre id="prompt-4" class="prompt" tabindex="0">Here is my feedback: [feedback].
 
-Identify the reason behind the correction. Propose the smallest
-useful skill change and explain whether it applies generally
-or only to this case.
+Identify the reason behind the correction. Propose the smallest useful skill change and explain whether it applies generally or only to this case.
 
-Apply the agreed change, rerun the relevant case and test an
-earlier case. Keep the actual results and flag unresolved issues.</pre></div><p class="copy-status" id="status-4" role="status" aria-live="polite"></p></af-card></article></div><div class="debrief"><af-typography-lockup heading-size="4" text-alignment="center" max-width="640"><span slot="eyebrow" class="eyebrow">Before you finish</span><h3>What must a useful result preserve?<br>What would you test next?</h3><span slot="description">Your first draft will still need testing and review before you rely on it.</span></af-typography-lockup></div></section></af-section>
+Apply the agreed change, rerun the relevant case and test an earlier case. Keep the actual results and flag unresolved issues.</pre></div><p class="copy-status" id="status-4" role="status" aria-live="polite"></p></af-card></article></div><div class="debrief"><af-typography-lockup heading-size="4" text-alignment="center" max-width="640"><span slot="eyebrow" class="eyebrow">Before you finish</span><h3>What must a useful result preserve?<br>What would you test next?</h3><span slot="description">Your first draft will still need testing and review before you rely on it.</span></af-typography-lockup></div></section></af-section>
 
 </main>
 <div class="october-footer">
