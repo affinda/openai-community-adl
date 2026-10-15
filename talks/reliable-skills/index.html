@@ -11,66 +11,81 @@
 <!-- Relative paths only: the page is served from both GitHub Pages and
      affinda.com/events/2026/openai-community-adl/. -->
 <link rel="stylesheet" href="../../vendor/css/dist/index.css">
+<link rel="stylesheet" href="../../assets/footer.css">
 <script type="module" src="../../vendor/wc/affinda.esm.js"></script>
 <style>
 html { scroll-behavior: smooth; }
 :root { background-color: var(--colour-brand-ivory-paper); }
-body { margin: 0; background: var(--colour-brand-ivory-paper); color: var(--colour-brand-inkwell); font-family: 'NeuSans', system-ui, sans-serif; font-size: 17px; line-height: 1.55; }
+body { margin: 0; background: var(--colour-brand-ivory-paper); color: var(--colour-brand-inkwell); font-family: var(--typography-bodyfont, 'NeuSans', sans-serif); font-size: var(--font-size-body-large, 18px); line-height: var(--line-height-body-large, 26px); }
 a { color: inherit; text-underline-offset: .22em; }
 :focus-visible { outline: 3px solid var(--colour-brand-inkwell); outline-offset: 5px; }
-.skip-link { position: absolute; top: -100px; left: 20px; background: var(--colour-brand-azure); padding: 12px; z-index: 5; }
-.skip-link:focus { top: 12px; }
+.skip-link { position: absolute; top: -100px; left: var(--space-5); background: var(--colour-brand-azure); padding: var(--space-3); z-index: 5; }
+.skip-link:focus { top: var(--space-3); }
 .wrap { width: min(100% - 48px, 1000px); margin-inline: auto; }
-.header { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 28px; }
-.header nav { display: flex; flex-wrap: wrap; gap: 24px; font-size: 15px; }
-.header a { text-decoration: none; }
-.logo-link { padding: 14px 0; line-height: 0; }
-.hero { padding-block: 56px 48px; color: var(--colour-brand-ivory-paper); }
+/* Long-form reading column: narrower than the navbar and footer. */
+.measure { max-width: 1000px; margin-inline: auto; }
+.hero { color: var(--colour-brand-ivory-paper); }
 .hero h1, .hero h2, .hero p, .hero .contact-email { color: inherit; }
-.eyebrow { font-size: 14px; font-weight: 600; margin: 0 0 12px; }
-h1 { font-size: clamp(38px, 5.5vw, 64px); line-height: 1.05; letter-spacing: -.035em; font-weight: 400; margin: 0 0 22px; max-width: 740px; }
-.hero-intro { max-width: 680px; font-size: 20px; margin: 0; }
-.profile { display: flex; align-items: center; gap: 28px; padding: 32px 0 0; }
+/* Same as the site's .eyebrow rule (website src/styles/october.css). */
+.eyebrow { display: inline-block; font-size: 12.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--colour-tints-soft-clay-600); margin: 0 0 14px; }
+.hero .eyebrow { color: var(--colour-brand-azure); }
+h1 { font-size: var(--font-size-heading-1-fluid, clamp(38px, 1.99vw + 30.54px, 56px)); line-height: var(--line-height-heading-tight, 1); letter-spacing: var(--letter-spacing-heading, -0.02em); font-weight: var(--font-weight-regular, 400); margin: 0 0 var(--space-6); max-width: 740px; }
+.hero-intro { max-width: 680px; font-size: var(--font-size-body-xlarge, 22px); line-height: var(--line-height-body-xlarge, 28px); margin: 0; }
+.profile { display: flex; align-items: center; gap: var(--space-6); padding: var(--space-8) 0 0; }
 .portrait { width: 132px; height: 156px; object-fit: cover; object-position: center 27%; border-radius: var(--radius-lg); flex-shrink: 0; }
-.profile h2 { font-size: 27px; line-height: 1.2; margin: 0 0 5px; font-weight: 600; }
-.profile p { margin: 0 0 10px; }
-.contact-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; }
-.contact-email { font-size: 15px; overflow-wrap: anywhere; }
-.section { padding-block: 50px; }
-.section-heading { font-size: clamp(28px, 3.5vw, 36px); line-height: 1.15; font-weight: 400; letter-spacing: -.025em; margin: 0 0 16px; }
-.section-intro { max-width: 760px; margin: 0 0 22px; }
-.getting-started { border-left: 3px solid var(--colour-brand-mist-green); padding-left: 20px; margin-bottom: 32px; }
-.getting-started p { margin: 8px 0; }
-.steps { display: grid; gap: 24px; }
-.step-header { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-.step-header h3 { font-size: 23px; font-weight: 600; line-height: 1.2; margin: 0; }
-.step-header .eyebrow { margin-bottom: 5px; }
-.instruction { margin: 20px 0; max-width: 790px; }
-.prompt { white-space: pre-wrap; overflow-wrap: anywhere; font-family: 'NeuSans', system-ui, sans-serif; font-size: 16px; line-height: 1.6; background: var(--colour-brand-ivory-paper); border: 1px solid var(--colour-brand-mist-green); border-radius: var(--radius-md); padding: 24px; margin: 0; }
-.copy-status { min-height: 1.4em; font-size: 14px; margin: 8px 0 0; }
-.debrief { margin-top: 32px; }
-.debrief h3 { font-size: 21px; font-weight: 600; margin: 0 0 8px; }
-.debrief p { margin: 0; }
-.download-content { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
-.download-content p { max-width: 620px; margin: 0 0 14px; }
-.download-note { font-size: 14px; margin-top: 14px !important; }
-.footer { padding-block: 28px; font-size: 14px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-.manual-copy { width: min(90vw, 700px); background: var(--colour-brand-ivory-paper); color: var(--colour-brand-inkwell); border: 1px solid var(--colour-brand-mist-green); border-radius: var(--radius-lg); padding: 28px; }
-.manual-copy textarea { width: 100%; min-height: 280px; padding: 16px; margin: 16px 0; font: inherit; border: 1px solid var(--colour-brand-inkwell); background: var(--colour-brand-white); color: var(--colour-brand-inkwell); }
-.manual-copy h2 { font-size: 24px; margin: 0 0 12px; }
+.profile h2 { font-size: var(--font-size-heading-4-fluid, clamp(20px, 0.44vw + 18.34px, 24px)); line-height: var(--line-height-heading-normal, 1.1); letter-spacing: var(--letter-spacing-heading, -0.02em); font-weight: var(--font-weight-regular, 400); margin: 0 0 var(--space-1); }
+.profile p { margin: 0 0 var(--space-2); }
+.contact-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-6); }
+.contact-email { font-size: var(--font-size-body-small, 14px); line-height: var(--line-height-body-small, 20px); overflow-wrap: anywhere; }
+.section-heading { font-size: var(--font-size-heading-2-fluid, clamp(32px, 1.33vw + 27.03px, 44px)); line-height: var(--line-height-heading-tight, 1); letter-spacing: var(--letter-spacing-heading, -0.02em); font-weight: var(--font-weight-regular, 400); margin: 0 0 var(--space-4); }
+.section-intro { max-width: 760px; margin: 0 0 var(--space-6); }
+.getting-started { border-left: 3px solid var(--colour-tints-soft-clay-600); padding-left: var(--space-5); margin-bottom: var(--space-8); }
+.getting-started p { margin: var(--space-2) 0; }
+.steps { display: grid; gap: var(--space-6); }
+.step-header { display: flex; align-items: center; justify-content: space-between; gap: var(--space-5); }
+.step-header h3 { font-size: var(--font-size-heading-4-fluid, clamp(20px, 0.44vw + 18.34px, 24px)); line-height: var(--line-height-heading-normal, 1.1); letter-spacing: var(--letter-spacing-heading, -0.02em); font-weight: var(--font-weight-regular, 400); margin: 0; }
+.step-header .eyebrow { margin-bottom: var(--space-1); }
+.instruction { margin: var(--space-5) 0; max-width: 790px; }
+.prompt { white-space: pre-wrap; overflow-wrap: anywhere; font-family: var(--typography-bodyfont, 'NeuSans', sans-serif); font-size: var(--font-size-body-medium, 16px); line-height: var(--line-height-body-medium, 24px); background: var(--af-background-level-1, var(--colour-mistgreen-200)); border-radius: var(--radius-md); padding: var(--space-6); margin: 0; }
+.prompt-wrap { position: relative; }
+.prompt-wrap .prompt { padding-right: calc(var(--space-8) * 2); }
+.prompt-copy { position: absolute; top: var(--space-3); right: var(--space-3); }
+.banner-eyebrow { display: block; font-family: var(--typography-primaryfont, 'NeuSans', sans-serif); font-size: 12.5px; font-weight: 400; line-height: 1.4; letter-spacing: .06em; text-transform: uppercase; color: var(--colour-brand-inkwell); margin-bottom: 14px; }
+.copy-status { min-height: 1.4em; font-size: var(--font-size-body-small, 14px); line-height: var(--line-height-body-small, 20px); margin: var(--space-2) 0 0; }
+/* Takes no space until it has a message, so the card ends at the prompt box. */
+.copy-status:empty { position: absolute; min-height: 0; margin: 0; }
+/* Sits in its own band: the space above matches the space below it to the
+   footer banner (section padding 96px + banner offset 64px; 64 + 64 on phones). */
+.debrief { margin-top: calc(var(--space-8) * 5); display: flex; justify-content: center; }
+@media (max-width: 768px) { .debrief { margin-top: calc(var(--space-8) * 4); } }
+.manual-copy { width: min(90vw, 700px); background: var(--colour-brand-ivory-paper); color: var(--colour-brand-inkwell); border: 1px solid var(--colour-brand-mist-green); border-radius: var(--radius-xl, 24px); padding: var(--space-8); }
+.manual-copy textarea { width: 100%; min-height: 280px; padding: var(--space-4); margin: var(--space-4) 0; font: inherit; border: 1px solid var(--colour-brand-inkwell); background: var(--colour-brand-white); color: var(--colour-brand-inkwell); }
+.manual-copy h2 { font-size: var(--font-size-heading-4-fluid, clamp(20px, 0.44vw + 18.34px, 24px)); line-height: var(--line-height-heading-normal, 1.1); letter-spacing: var(--letter-spacing-heading, -0.02em); font-weight: var(--font-weight-regular, 400); margin: 0 0 var(--space-3); }
 .manual-copy p { margin: 0; }
 .clipboard-buffer { position: fixed; top: 0; left: -9999px; }
-@media (max-width: 640px) { .wrap { width: calc(100% - 32px); } .header { padding-block: 14px; gap: 12px; } .header nav { gap: 16px; font-size: 14px; } .hero { padding-block: 34px; } .hero-intro { font-size: 18px; } .profile { align-items: flex-start; gap: 18px; flex-wrap: wrap; } .portrait { width: 95px; height: 115px; } .profile-text { flex: 1; min-width: 200px; } .profile h2 { font-size: 24px; } .section { padding-block: 34px; } .step-header { align-items: flex-start; flex-direction: column; gap: 16px; } .step-header h3 { font-size: 21px; } .prompt { padding: 18px; font-size: 15px; } .download-content { flex-direction: column; align-items: flex-start; gap: 20px; } }
+@media (max-width: 640px) { .wrap { width: calc(100% - 32px); } .profile { align-items: flex-start; gap: var(--space-4); flex-wrap: wrap; } .portrait { width: 95px; height: 115px; } .profile-text { flex: 1; min-width: 200px; } .step-header { align-items: flex-start; flex-direction: column; gap: var(--space-4); } .prompt { padding: var(--space-4); } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-@media print { .header nav, .contact-actions, [data-copy], .copy-status { display: none; } .steps article { break-inside: avoid; } }
+@media print { af-navbar, .october-footer, .contact-actions, [data-copy], .copy-status { display: none; } .steps article { break-inside: avoid; } }
 </style>
 </head>
 <body>
 <a class="skip-link" href="#activity">Skip to the activity</a>
-<header class="wrap header"><a class="logo-link" href="https://www.affinda.com/" aria-label="Affinda website"><af-logo></af-logo></a><nav aria-label="Page navigation"><a href="../../#agenda">Event page</a><a href="#activity">Activity prompts</a><a href="#download">Skill download</a></nav></header>
+<af-navbar theme="inkwell" variant="strip" show-default-logo="false">
+  <a slot="logo" href="https://www.affinda.com/" aria-label="Affinda home"><af-logo></af-logo></a>
+  <af-nav-item slot="start" href="../../#agenda">Event page</af-nav-item>
+  <af-nav-item slot="start" href="#activity">Activity prompts</af-nav-item>
+  <af-nav-item slot="start" href="#download">Skill download</af-nav-item>
+  <af-button slot="button" href="https://luma.com/avdxttft" size="thin">Register</af-button>
+  <af-button slot="mobile-button" href="https://luma.com/avdxttft" size="thin">Register</af-button>
+  <af-nav-accordion slot="mobile-menu">
+    <af-nav-accordion-item item-id="m-event" label="Event page" href="../../#agenda"></af-nav-accordion-item>
+    <af-nav-accordion-item item-id="m-activity" label="Activity prompts" href="#activity"></af-nav-accordion-item>
+    <af-nav-accordion-item item-id="m-download" label="Skill download" href="#download"></af-nav-accordion-item>
+  </af-nav-accordion>
+</af-navbar>
 <main>
-<af-section theme="inkwell" padding="none" container="false"><div class="wrap hero"><p class="eyebrow">OpenAI Codex Community · Adelaide · 15 October 2026</p><h1>Building a reliable skill</h1><p class="hero-intro">Choose a repeated task. Define a useful result. Test it, give feedback and check it again.</p><div class="profile"><img class="portrait" src="portrait.jpg" alt="Laurence Wood" width="132" height="156"><div class="profile-text"><h2>Laurence Wood</h2><p>AI Training Facilitator · Affinda Deployment</p><div class="contact-actions"><af-button id="connect" href="https://www.linkedin.com/in/laurence-wood-0944bb12/" variant="primary">Connect with me</af-button><a class="contact-email" href="mailto:laurence.wood@affinda.com">laurence.wood@affinda.com</a></div></div></div></div></af-section>
-<section class="wrap section" id="activity" aria-labelledby="activity-title"><p class="eyebrow">Try it yourself</p><h2 class="section-heading" id="activity-title">Draft a skill of your own</h2><p class="section-intro">The main aim is to create a first draft of your skill using Step 2. If you have time, describe a realistic example you could use to test it and what a useful result would look like. Running the test and inspecting its output are optional if time allows.</p><div class="getting-started"><p>If you already have a small, repeatable workflow you understand well, start at Step 2. Otherwise, use Step 1 to help you choose and scope one.</p><p>Work on your skill draft using Step 2. Use Step 3 to plan a realistic test if you have time. Continue in the same conversation and review each response before moving on. You can return to the testing and refinement prompts after the session. Try the saved skill in a fresh chat, without the examples and corrections from the chat where you built it.</p><p>Replace the text in square brackets with your own details. If skill creation isn’t available, prompt 2 asks for a draft you can develop further.</p></div><div class="steps"><article aria-labelledby="step-1"><af-card theme="white"><div class="step-header"><div><p class="eyebrow">Step 1</p><h3 id="step-1">Choose and scope the workflow</h3></div><af-button variant="secondary" size="thin" data-copy="prompt-1">Copy prompt 1</af-button></div><p class="instruction">Choose a repeated task you understand well enough to review. Use an existing conversation with a completed task, or describe a task you do regularly. Read the options and choose one you can assess.</p><pre id="prompt-1" class="prompt" tabindex="0">Help me identify a small, repeatable workflow for a skill.
+<af-section theme="inkwell" padding="tight"><div class="hero measure"><p class="eyebrow">OpenAI Codex Community · Adelaide · 15 October 2026</p><h1>Building a reliable skill</h1><p class="hero-intro">Choose a repeated task. Define a useful result. Test it, give feedback and check it again.</p><div class="profile"><img class="portrait" src="portrait.jpg" alt="Laurence Wood" width="132" height="156"><div class="profile-text"><h2>Laurence Wood</h2><p>AI Training Facilitator · Affinda Deployment</p><div class="contact-actions"><af-button id="connect" href="https://www.linkedin.com/in/laurence-wood-0944bb12/" variant="primary">Connect with me</af-button><a class="contact-email" href="mailto:laurence.wood@affinda.com">laurence.wood@affinda.com</a></div></div></div></div></af-section>
+<af-section theme="white-ivory" padding="default"><section class="measure" id="activity" aria-labelledby="activity-title"><p class="eyebrow">Try it yourself</p><h2 class="section-heading" id="activity-title">Draft a skill of your own</h2><p class="section-intro">The main aim is to create a first draft of your skill using Step 2. If you have time, describe a realistic example you could use to test it and what a useful result would look like. Running the test and inspecting its output are optional if time allows.</p><div class="getting-started"><p>If you already have a small, repeatable workflow you understand well, start at Step 2. Otherwise, use Step 1 to help you choose and scope one.</p><p>Work on your skill draft using Step 2. Use Step 3 to plan a realistic test if you have time. Continue in the same conversation and review each response before moving on. You can return to the testing and refinement prompts after the session. Try the saved skill in a fresh chat, without the examples and corrections from the chat where you built it.</p><p>Replace the text in square brackets with your own details. If skill creation isn’t available, prompt 2 asks for a draft you can develop further.</p></div><div class="steps"><article aria-labelledby="step-1"><af-card theme="white"><div class="step-header"><div><p class="eyebrow">Step 1</p><h3 id="step-1">Choose and scope the workflow</h3></div><af-button variant="secondary" size="thin" data-copy="prompt-1">Copy prompt 1</af-button></div><p class="instruction">Choose a repeated task you understand well enough to review. Use an existing conversation with a completed task, or describe a task you do regularly. Read the options and choose one you can assess.</p><div class="prompt-wrap"><af-icon-button class="prompt-copy" variant="ghost" size="small" aria-label="Copy prompt 1" data-copy="prompt-1" data-copy-icon><svg class="copy-glyph" width="20" height="20" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path fill="currentColor" d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"/></svg></af-icon-button><pre id="prompt-1" class="prompt" tabindex="0">Help me identify a small, repeatable workflow for a skill.
 
 Use the tasks or examples available in this conversation or
 accessible sources. Say what you used. If there isn’t enough
@@ -82,8 +97,8 @@ Suggest up to three options. For each, explain:
 - What is outside its scope
 - How I could check whether it worked
 
-Recommend one manageable option for a first attempt.</pre><p class="copy-status" id="status-1" role="status" aria-live="polite"></p></af-card></article>
-<article aria-labelledby="step-2"><af-card theme="white"><div class="step-header"><div><p class="eyebrow">Step 2</p><h3 id="step-2">Define success and create the first draft</h3></div><af-button variant="secondary" size="thin" data-copy="prompt-2">Copy prompt 2</af-button></div><p class="instruction">Replace [option or workflow] with your choice. Read the proposed checks. If they say “high quality”, “professional” or “accurate”, ask what that means for your task.</p><pre id="prompt-2" class="prompt" tabindex="0">I choose [option or workflow].
+Recommend one manageable option for a first attempt.</pre></div><p class="copy-status" id="status-1" role="status" aria-live="polite"></p></af-card></article>
+<article aria-labelledby="step-2"><af-card theme="white"><div class="step-header"><div><p class="eyebrow">Step 2</p><h3 id="step-2">Define success and create the first draft</h3></div><af-button variant="secondary" size="thin" data-copy="prompt-2">Copy prompt 2</af-button></div><p class="instruction">Replace [option or workflow] with your choice. Read the proposed checks. If they say “high quality”, “professional” or “accurate”, ask what that means for your task.</p><div class="prompt-wrap"><af-icon-button class="prompt-copy" variant="ghost" size="small" aria-label="Copy prompt 2" data-copy="prompt-2" data-copy-icon><svg class="copy-glyph" width="20" height="20" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path fill="currentColor" d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"/></svg></af-icon-button><pre id="prompt-2" class="prompt" tabindex="0">I choose [option or workflow].
 
 Define a useful result and up to five observable checks.
 Include what should happen when information is missing or
@@ -96,23 +111,76 @@ requirements and review checks.
 If skill creation isn’t available here, draft the SKILL.md content
 and explain what remains to make it usable.
 
-Distinguish reusable instructions from requirements for this example.</pre><p class="copy-status" id="status-2" role="status" aria-live="polite"></p></af-card></article>
-<article aria-labelledby="step-3"><af-card theme="white"><div class="step-header"><div><p class="eyebrow">Step 3</p><h3 id="step-3">Plan a test; run it if time allows</h3></div><af-button variant="secondary" size="thin" data-copy="prompt-3">Copy prompt 3</af-button></div><p class="instruction">Check that your planned test reflects a task you would actually use the skill for. If you run it, inspect the result yourself and note one thing it handled well or one thing you would change.</p><pre id="prompt-3" class="prompt" tabindex="0">Suggest one realistic example I could use to test my skill. Describe the input, what a useful result would look like and what I should check. Do not run the test yet.
+Distinguish reusable instructions from requirements for this example.</pre></div><p class="copy-status" id="status-2" role="status" aria-live="polite"></p></af-card></article>
+<article aria-labelledby="step-3"><af-card theme="white"><div class="step-header"><div><p class="eyebrow">Step 3</p><h3 id="step-3">Plan a test; run it if time allows</h3></div><af-button variant="secondary" size="thin" data-copy="prompt-3">Copy prompt 3</af-button></div><p class="instruction">Check that your planned test reflects a task you would actually use the skill for. If you run it, inspect the result yourself and note one thing it handled well or one thing you would change.</p><div class="prompt-wrap"><af-icon-button class="prompt-copy" variant="ghost" size="small" aria-label="Copy prompt 3" data-copy="prompt-3" data-copy-icon><svg class="copy-glyph" width="20" height="20" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path fill="currentColor" d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"/></svg></af-icon-button><pre id="prompt-3" class="prompt" tabindex="0">Suggest one realistic example I could use to test my skill. Describe the input, what a useful result would look like and what I should check. Do not run the test yet.
 
 If I ask you to run it, keep the actual output. Compare it with the source and agreed checks. Report what passed, what failed and what remains uncertain, with specific evidence. Confirm whether the skill was actually used, if observable.
 
-Don’t change the skill during this first test.</pre><p class="copy-status" id="status-3" role="status" aria-live="polite"></p></af-card></article>
-<article aria-labelledby="step-4"><af-card theme="white"><div class="step-header"><div><p class="eyebrow">After the session</p><h3 id="step-4">Refine and check again</h3></div><af-button variant="secondary" size="thin" data-copy="prompt-4">Copy prompt 4</af-button></div><p class="instruction">Replace [feedback] with your own observations. Review the proposed change and agree it before continuing. Compare the new result with an earlier case.</p><pre id="prompt-4" class="prompt" tabindex="0">Here is my feedback: [feedback].
+Don’t change the skill during this first test.</pre></div><p class="copy-status" id="status-3" role="status" aria-live="polite"></p></af-card></article>
+<article aria-labelledby="step-4"><af-card theme="white"><div class="step-header"><div><p class="eyebrow">After the session</p><h3 id="step-4">Refine and check again</h3></div><af-button variant="secondary" size="thin" data-copy="prompt-4">Copy prompt 4</af-button></div><p class="instruction">Replace [feedback] with your own observations. Review the proposed change and agree it before continuing. Compare the new result with an earlier case.</p><div class="prompt-wrap"><af-icon-button class="prompt-copy" variant="ghost" size="small" aria-label="Copy prompt 4" data-copy="prompt-4" data-copy-icon><svg class="copy-glyph" width="20" height="20" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path fill="currentColor" d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"/></svg></af-icon-button><pre id="prompt-4" class="prompt" tabindex="0">Here is my feedback: [feedback].
 
 Identify the reason behind the correction. Propose the smallest
 useful skill change and explain whether it applies generally
 or only to this case.
 
 Apply the agreed change, rerun the relevant case and test an
-earlier case. Keep the actual results and flag unresolved issues.</pre><p class="copy-status" id="status-4" role="status" aria-live="polite"></p></af-card></article></div><div class="debrief"><h3>Before you finish</h3><p>What must a useful result preserve? What would you test next?<br>Your first draft will still need testing and review before you rely on it.</p></div></section>
-<af-section theme="mist-green" padding="none" container="false"><section class="wrap section" id="download" aria-labelledby="download-title"><div class="download-content"><div><p class="eyebrow">The example from the talk</p><h2 class="section-heading" id="download-title">UI element trimmer</h2><p>Isolates an interface item from an existing screenshot, preserves the captured interface and adds a consistent shadow on a transparent background.</p><p class="download-note">This download is mainly for exploring the skill’s instructions and structure. Unzip it and read SKILL.md to see the steps, checks and test cases.</p><p class="download-note">To run the scripts, you’ll need Python installed, along with Pillow and NumPy.</p></div><div><af-button id="download-skill" href="ui-element-trimmer.zip" variant="primary">Download the skill ZIP</af-button><p class="download-note">ui-element-trimmer.zip · 36 KB</p></div></div></section></af-section>
+earlier case. Keep the actual results and flag unresolved issues.</pre></div><p class="copy-status" id="status-4" role="status" aria-live="polite"></p></af-card></article></div><div class="debrief"><af-typography-lockup heading-size="4" text-alignment="center" max-width="640"><span slot="eyebrow" class="eyebrow">Before you finish</span><h3>What must a useful result preserve?<br>What would you test next?</h3><span slot="description">Your first draft will still need testing and review before you rely on it.</span></af-typography-lockup></div></section></af-section>
+
 </main>
-<footer class="wrap footer"><span>Laurence Wood · Affinda Deployment</span><a href="#activity">Back to the activity</a></footer>
+<div class="october-footer">
+    <af-footer show-status="false" cta-top-color="var(--colour-brand-ivory-paper)" cta-id="download">
+      <af-in-page-banner
+        slot="cta"
+        theme="soft-clay"
+        illustration-url="document-raise-soft-clay.svg"
+        description="Isolates an interface item from an existing screenshot, keeps the captured interface and adds a consistent shadow on a transparent background. Unzip it and read SKILL.md to see the steps, checks and test cases. To run the scripts, you'll need Python with Pillow and NumPy.">
+        <span slot="heading"><span class="banner-eyebrow">The example from the talk</span>UI element trimmer</span>
+        <af-button-group slot="buttons">
+          <af-button id="download-skill" variant="primary" href="ui-element-trimmer.zip">Download the skill ZIP (36 KB)</af-button>
+        </af-button-group>
+      </af-in-page-banner>
+
+      <a slot="logo" href="https://www.affinda.com/" aria-label="Affinda home"><af-logo class="october-footer__logo-full"></af-logo><af-logo-mark class="october-footer__logo-mark"></af-logo-mark></a>
+      <af-social-link slot="social" icon="linkedin" label="LinkedIn" href="https://www.linkedin.com/company/affinda/"></af-social-link>
+      <af-footer-column slot="nav" heading="This event">
+        <af-footer-link href="../../#agenda">Agenda</af-footer-link>
+        <af-footer-link href="../../#speakers">Speakers</af-footer-link>
+        <af-footer-link href="../../#venue">Venue</af-footer-link>
+        <af-footer-link href="../../#contact">Contact</af-footer-link>
+        <af-footer-link href="https://luma.com/avdxttft" external>Register on Luma</af-footer-link>
+      </af-footer-column>
+      <af-footer-column slot="nav" heading="Products">
+        <af-footer-link href="https://www.affinda.com/gateway/">Affinda Gateway</af-footer-link>
+        <af-footer-link href="https://www.affinda.com/extract/">Affinda Extract</af-footer-link>
+        <af-footer-link href="https://www.affinda.com/deployment/">Affinda Deployment</af-footer-link>
+      </af-footer-column>
+      <af-footer-column slot="nav" heading="About">
+        <af-footer-link href="https://www.affinda.com/about-us/">Company</af-footer-link>
+        <af-footer-link href="https://www.affinda.com/careers/">Careers</af-footer-link>
+        <af-footer-link href="https://www.affinda.com/security/">Security</af-footer-link>
+      </af-footer-column>
+
+      <div class="october-footer__bottom">
+        <p class="october-footer__copyright">&copy; 2026 Affinda. All rights reserved.</p>
+        <div class="october-footer__legal">
+          <a href="https://www.affinda.com/privacy-and-data-protection-policy/">Privacy policy</a>
+          <a href="https://www.affinda.com/website-terms/">Website terms</a>
+          <a href="https://www.affinda.com/legal/">Legal</a>
+        </div>
+        <div class="october-footer__badges">
+          <img src="../../assets/compliance/gdpr.v1.svg" alt="GDPR compliant" width="64" height="64" loading="lazy" decoding="async">
+          <img src="../../assets/compliance/soc2.v1.svg" alt="SOC 2 Type II certified" width="64" height="64" loading="lazy" decoding="async">
+          <img src="../../assets/compliance/iso27001-2022.v1.svg" alt="ISO 27001:2022 certified" width="64" height="64" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <!-- Large decorative wordmark, as on the affinda.com footer. -->
+<div class="october-footer__wordmark" aria-hidden="true">
+  <svg viewBox="0 0.4375 1282 200" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
+    <path d="M406.08 35.5029C418.834 35.503 430.594 38.3237 441.044 43.8672C444.293 45.5841 447.42 47.5951 450.427 49.8516V39.0352H487.452V198.646H450.427V186.21C447.057 188.638 443.541 190.747 439.929 192.562C429.478 197.787 417.912 200.437 405.57 200.437C383.627 200.436 364.617 192.293 349.1 176.202C333.654 160.185 325.823 140.095 325.823 117.602C325.823 95.1083 333.752 75.6072 349.343 59.6387C364.982 43.6214 384.064 35.5029 406.08 35.5029ZM1103.18 198.893H1066.16V186.228C1062.79 188.653 1059.27 190.759 1055.66 192.572C1045.21 197.79 1033.64 200.436 1021.3 200.437C999.357 200.437 980.348 192.303 964.83 176.232C949.385 160.26 941.553 140.172 941.553 117.708C941.553 95.2437 949.482 75.7673 965.072 59.8193C980.711 43.8226 999.794 35.7139 1021.81 35.7139C1034.56 35.7139 1046.32 38.531 1056.77 44.0674C1060.02 45.7822 1063.15 47.7912 1066.16 50.0449V0.4375H1103.18V198.893ZM1200.12 35.5029C1212.87 35.5029 1224.63 38.3236 1235.08 43.8672C1238.33 45.5842 1241.46 47.5949 1244.46 49.8516V39.2305H1281.49V198.646H1244.46V186.21C1241.09 188.638 1237.58 190.747 1233.96 192.562C1223.51 197.787 1211.95 200.436 1199.61 200.437C1177.66 200.437 1158.65 192.293 1143.14 176.202C1127.69 160.185 1119.86 140.095 1119.86 117.602C1119.86 95.1083 1127.79 75.6072 1143.38 59.6387C1159.02 43.6214 1178.1 35.5029 1200.12 35.5029ZM864.818 36.8018C876.912 36.8018 887.868 40.0093 897.345 46.3506H897.32C906.821 52.7167 913.947 61.3534 918.455 72.0869C922.769 82.3517 924.878 97.2801 924.878 117.711V199.139H887.602V122.942C887.602 103.153 886.56 95.9226 885.93 93.3564C884.354 86.2256 881.688 81.2904 877.713 78.1074C873.714 74.8752 868.357 73.3213 861.305 73.3213C853.016 73.3213 845.768 76.0597 839.151 81.6855C832.341 87.5088 827.954 94.4674 825.797 103.005C824.827 107.052 823.615 116.576 823.615 138.216V199.114H786.339V38.332H823.615V50.793C826.427 48.6462 829.336 46.746 832.317 45.0928C842.254 39.5904 852.724 36.8018 864.818 36.8018ZM177.938 39.4072C198.793 39.0857 218.41 47.2713 233.299 62.2822L233.323 62.2578C248.309 77.3676 256.554 97.522 256.554 119.062C256.554 163.204 221.32 199.137 178.036 199.138H53.2021C23.8609 199.138 0 174.358 0 144.88C4.82019e-05 115.402 23.6185 90.8455 52.6201 90.1035H186.038L164.941 123.34H53.1777C41.8536 123.686 32.5665 133.282 32.5664 144.88C32.5664 156.478 41.8294 165.925 53.2021 165.925H178.036C203.352 165.925 223.963 144.929 223.963 119.087C223.963 106.499 219.138 94.7277 210.408 85.9238C201.897 77.3426 190.645 72.6445 178.666 72.6445H55.4814L75.9238 39.4072H177.938ZM618.296 39.377H576.539C557.368 39.377 541.781 53.4701 541.781 73.0381H541.806V99.7998H601.387V136.947H541.806V199.138H505.412V73.0381C505.412 33.0182 537.308 0.437593 576.539 0.4375H618.296V39.377ZM731.18 0.4375V39.377H689.423C670.252 39.377 654.665 53.4701 654.665 73.0381H654.689V99.7998H714.271V136.947H654.689V199.138H618.296V73.0381C618.296 33.0182 650.191 0.4375 689.423 0.4375H731.18ZM768.38 199.138H731.18V39.3984H768.38V199.138ZM1023.26 72.7051C1015.19 72.7051 1007.99 74.6408 1001.2 78.6338C994.435 82.6023 989.173 88.0653 985.148 95.3164C981.075 102.617 979.087 110.187 979.087 118.223C979.087 126.258 981.075 133.754 985.197 141.152C989.295 148.501 994.581 154.062 1001.42 158.104C1008.23 162.171 1015.17 164.131 1023.12 164.131C1031.07 164.131 1038.4 162.147 1045.55 158.08C1052.58 154.087 1057.84 148.844 1061.6 142.059L1061.62 142.01C1065.43 135.126 1067.3 127.507 1067.3 118.712C1067.3 105.385 1063.13 94.6063 1054.54 85.7627C1046.03 76.9681 1035.8 72.7051 1023.26 72.7051ZM407.534 72.541C399.46 72.5411 392.259 74.4793 385.47 78.4775C378.705 82.4512 373.444 87.9212 369.419 95.1816C365.346 102.491 363.357 110.071 363.356 118.116C363.356 126.162 365.345 133.668 369.467 141.076C373.564 148.435 378.851 154.003 385.688 158.05C392.502 162.122 399.46 164.084 407.389 164.084C415.317 164.084 422.665 162.097 429.817 158.025C436.849 154.027 442.111 148.778 445.869 141.983L445.893 141.935C449.699 135.042 451.566 127.413 451.566 118.607C451.566 105.264 447.396 94.4703 438.812 85.6152C430.302 76.8095 420.07 72.541 407.534 72.541ZM1201.57 72.541C1193.5 72.541 1186.29 74.4794 1179.51 78.4775C1172.74 82.4512 1167.48 87.9211 1163.45 95.1816C1159.38 102.491 1157.39 110.071 1157.39 118.116C1157.39 126.162 1159.38 133.668 1163.5 141.076C1167.6 148.435 1172.89 154.003 1179.72 158.05C1186.54 162.122 1193.5 164.084 1201.42 164.084C1209.35 164.084 1216.7 162.097 1223.85 158.025C1230.88 154.027 1236.15 148.778 1239.9 141.983L1239.93 141.935C1243.74 135.042 1245.6 127.413 1245.6 118.607C1245.6 105.264 1241.43 94.4703 1232.85 85.6152C1224.34 76.8094 1214.11 72.541 1201.57 72.541Z" fill="currentColor"/>
+  </svg>
+</div>
+    </af-footer>
+  </div>
 <dialog class="manual-copy" id="manual-copy" aria-labelledby="manual-title"><h2 id="manual-title">Copy this prompt</h2><p>Your browser couldn’t copy automatically. Select the text below and copy it.</p><textarea readonly aria-label="Prompt to copy"></textarea><af-button id="close-copy" variant="secondary">Close</af-button></dialog>
 <noscript><p class="wrap">JavaScript is disabled. You can select and copy each prompt directly.</p></noscript>
 <script>
@@ -135,8 +203,14 @@ document.querySelectorAll('[data-copy]').forEach(button => {
   }
   if (copied) {
    status.textContent = 'Copied. Paste it into your conversation.';
-   button.textContent = 'Copied';
-   window.setTimeout(() => { button.textContent = 'Copy prompt ' + id.split('-')[1]; }, 2000);
+   if (button.hasAttribute('data-copy-icon')) {
+    const glyph = button.innerHTML;
+    button.innerHTML = '<af-icon name="check" size="20" aria-hidden="true"></af-icon>';
+    window.setTimeout(() => { button.innerHTML = glyph; }, 2000);
+   } else {
+    button.textContent = 'Copied';
+    window.setTimeout(() => { button.textContent = 'Copy prompt ' + id.split('-')[1]; }, 2000);
+   }
   } else {
    status.textContent = 'Select and copy the prompt below.';
    const dialog = document.getElementById('manual-copy');

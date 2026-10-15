@@ -5,14 +5,19 @@ body {
   background: var(--colour-brand-ivory-paper);
 }
 
-/* Section label above a heading. Matches the affinda.com eyebrow, in
-   sentence case. */
+/* Section label above a heading. Copied from the site's .eyebrow rule
+   (website src/styles/october.css) so it matches affinda.com. */
 .eyebrow {
   display: inline-block;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--colour-tints-soft-clay-600, #9e8765);
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--colour-tints-soft-clay-600);
+}
+
+/* Eyebrow on the dark hero, as the site's .eyebrow--hero. */
+.eyebrow--hero {
+  color: var(--colour-brand-azure);
 }
 
 /* Keep the hero title from leaving a single word on its own line. */
@@ -118,15 +123,19 @@ af-hero h1 {
 /* LinkedIn link under each speaker tile. */
 .speaker-tile {
   display: grid;
-  gap: var(--space-3);
+  gap: var(--space-4);
   align-content: start;
 }
 
+/* Indent the link to sit under the text inside the tile. The tile text
+   starts 10% in; 12% looks aligned once the rounded corner is taken into
+   account. Percentage padding uses the tile width. */
 .speaker-linkedin {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
   justify-self: start;
+  padding-inline-start: 12%;
   font-size: 15px;
   color: inherit;
   text-decoration-color: var(--colour-brand-soft-clay);

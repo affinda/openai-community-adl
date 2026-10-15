@@ -38,7 +38,7 @@
 
   <main>
     <af-hero variant="inkwell-illustration" max-width="640">
-      <af-tag slot="badge" variant="mist-green">Thursday 15 October · Adelaide</af-tag>
+      <span slot="badge" class="eyebrow eyebrow--hero">Thursday 15 October · Adelaide</span>
       <h1>Codex Community Dev Day</h1>
       <span slot="description">An evening exploring the latest from OpenAI and how AI is changing the way we build. Stay for pizza, drinks and conversations with the Adelaide community.</span>
       <af-button-group slot="buttons">
@@ -149,16 +149,19 @@
       <ul class="speaker-tiles">
         <li class="speaker-tile">
           <img src="assets/speakers/tile-elle-dunbar.jpg" width="800" height="800" loading="lazy" alt="Meet me at Codex Community Dev Day on 15 October 2026. Elle Dunbar, Staff Product Engineer.">
+          <a class="speaker-linkedin" href="https://www.linkedin.com/in/elle-dunbar/" target="_blank" rel="noopener" aria-label="Elle Dunbar on LinkedIn"><af-icon name="linkedin" size="20" aria-hidden="true"></af-icon><span>LinkedIn</span></a>
         </li>
         <li class="speaker-tile">
           <img src="assets/speakers/tile-sophia-ng.jpg" width="800" height="800" loading="lazy" alt="I'm speaking at Codex Community Dev Day on 15 October 2026: What happens when everyone can build. Sophia Ng, AI Training Facilitator.">
+          <a class="speaker-linkedin" href="https://www.linkedin.com/in/sophiang113/" target="_blank" rel="noopener" aria-label="Sophia Ng on LinkedIn"><af-icon name="linkedin" size="20" aria-hidden="true"></af-icon><span>LinkedIn</span></a>
         </li>
         <li class="speaker-tile">
           <img src="assets/speakers/tile-laurence-wood.jpg" width="800" height="800" loading="lazy" alt="I'm speaking at Codex Community Dev Day on 15 October 2026: Building a reliable skill. Laurence Wood, AI Training Facilitator.">
-          <a class="speaker-linkedin" href="https://www.linkedin.com/in/laurence-wood-0944bb12/" target="_blank" rel="noopener"><af-icon name="linkedin" size="20" aria-hidden="true"></af-icon><span>Laurence Wood on LinkedIn</span></a>
+          <a class="speaker-linkedin" href="https://www.linkedin.com/in/laurence-wood-0944bb12/" target="_blank" rel="noopener" aria-label="Laurence Wood on LinkedIn"><af-icon name="linkedin" size="20" aria-hidden="true"></af-icon><span>LinkedIn</span></a>
         </li>
         <li class="speaker-tile">
           <img src="assets/speakers/tile-andrew-bird.jpg" width="800" height="800" loading="lazy" alt="I'm speaking at Codex Community Dev Day on 15 October 2026: Resourceful agents, open doors: what a season of AI mischief teaches builders. Andrew Bird, Head of AI, Affinda.">
+          <a class="speaker-linkedin" href="https://www.linkedin.com/in/andrew-bird/" target="_blank" rel="noopener" aria-label="Andrew Bird on LinkedIn"><af-icon name="linkedin" size="20" aria-hidden="true"></af-icon><span>LinkedIn</span></a>
         </li>
       </ul>
     </af-section>
@@ -176,7 +179,10 @@
           <span slot="eyebrow" class="eyebrow">Hosts</span>
           <h2>Matt McKinlay and Affinda</h2>
           <span slot="description">Matt McKinlay is a Codex Ambassador and is hosting the evening. Affinda is an OpenAI Advanced Partner that helps organisations harness AI to transform business processes.</span>
-          <af-button slot="buttons" variant="tertiary" href="https://www.affinda.com/">About Affinda</af-button>
+          <af-stack slot="buttons" gap="3" align="start">
+            <af-button variant="tertiary" href="https://www.affinda.com/">About Affinda</af-button>
+            <af-button variant="tertiary" href="https://www.linkedin.com/in/matthew-mckinlay-490819319/">Matt McKinlay on LinkedIn</af-button>
+          </af-stack>
         </af-typography-lockup>
       </af-grid>
     </af-section>
@@ -196,7 +202,7 @@
   </main>
 
   <div class="october-footer">
-    <af-footer show-status="false" cta-top-color="var(--colour-brand-ivory-paper)">
+    <af-footer show-status="false" cta-top-color="var(--colour-brand-white)">
       <af-in-page-banner
         slot="cta"
         theme="soft-clay"

@@ -15,6 +15,16 @@ function loadHubSpot() {
   });
 }
 
+// Event visitors aren't asking about a product, so preset "What brings you
+// here?" to Other. Same approach as the /contact/ page's ?topic= preselect.
+function preselectOther() {
+  const select = target.querySelector('select[name="product_of_interest"]');
+  if (!select || ![...select.options].some((option) => option.value === 'Other')) return;
+  select.value = 'Other';
+  select.dispatchEvent(new Event('input', { bubbles: true }));
+  select.dispatchEvent(new Event('change', { bubbles: true }));
+}
+
 function mount() {
   loadHubSpot()
     .then((hbspt) => {
@@ -25,6 +35,7 @@ function mount() {
         target: '#hs-contact-form',
         cssRequired: false,
         cssClass: 'hs-contact',
+        onFormReady: preselectOther,
       });
     })
     .catch(() => {
