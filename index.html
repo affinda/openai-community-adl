@@ -21,13 +21,13 @@
 <body>
 
   <af-navbar theme="inkwell" variant="strip" show-default-logo="false">
-    <a slot="logo" href="https://www.affinda.com/" aria-label="Affinda home"><af-logo></af-logo></a>
+    <a slot="logo" href="https://www.affinda.com/" aria-label="Affinda home" target="_blank" rel="noopener"><af-logo></af-logo></a>
     <af-nav-item slot="start" href="#agenda">Agenda</af-nav-item>
     <af-nav-item slot="start" href="#speakers">Speakers</af-nav-item>
     <af-nav-item slot="start" href="#venue">Venue</af-nav-item>
     <af-nav-item slot="start" href="#contact">Contact</af-nav-item>
-    <af-button slot="button" href="https://luma.com/avdxttft" size="thin">Register</af-button>
-    <af-button slot="mobile-button" href="https://luma.com/avdxttft" size="thin">Register</af-button>
+    <af-button slot="button" href="https://luma.com/avdxttft" size="thin" external>Register</af-button>
+    <af-button slot="mobile-button" href="https://luma.com/avdxttft" size="thin" external>Register</af-button>
     <af-nav-accordion slot="mobile-menu">
       <af-nav-accordion-item item-id="m-agenda" label="Agenda" href="#agenda"></af-nav-accordion-item>
       <af-nav-accordion-item item-id="m-speakers" label="Speakers" href="#speakers"></af-nav-accordion-item>
@@ -40,9 +40,9 @@
     <af-hero variant="inkwell-illustration" max-width="640">
       <span slot="badge" class="eyebrow eyebrow--hero">Thursday 15 October · Adelaide</span>
       <h1>Codex Community Dev Day</h1>
-      <span slot="description">An evening exploring the latest from OpenAI and how AI is changing the way we build. Stay for pizza, drinks and conversations with the Adelaide community.</span>
+      <span slot="description">An evening exploring the latest from OpenAI and how AI is changing the way we build. Stay for pizza, drinks and conversations with the AI community.</span>
       <af-button-group slot="buttons">
-        <af-button href="https://luma.com/avdxttft">Register on Luma</af-button>
+        <af-button href="https://luma.com/avdxttft" external>Register on Luma</af-button>
         <af-button href="#agenda" variant="secondary">See the agenda</af-button>
       </af-button-group>
       <img slot="illustration" src="assets/team-leader-inkwell.svg" alt="">
@@ -55,14 +55,18 @@
           <h2>5:30 to 8:30 pm ACDT</h2>
           <span slot="description">Thursday 15 October 2026</span>
         </af-icon-text>
+        <a class="glance-link" href="https://www.google.com/maps/search/?api=1&amp;query=Stone+%26+Chalk+Adelaide+Lot+Fourteen" target="_blank" rel="noopener">
         <af-icon-text icon="map-pin" heading-size="5" orientation="horizontal">
-          <h2>Stone &amp; Chalk Adelaide</h2>
-          <span slot="description">Lot Fourteen, North Terrace</span>
-        </af-icon-text>
+            <h2>Stone &amp; Chalk Adelaide</h2>
+            <span slot="description">Lot Fourteen, North Terrace</span>
+          </af-icon-text>
+        </a>
+        <a class="glance-link" href="https://luma.com/avdxttft" target="_blank" rel="noopener">
         <af-icon-text icon="link-out" heading-size="5" orientation="horizontal">
-          <h2>Free to attend</h2>
-          <span slot="description">Places are limited and subject to approval</span>
-        </af-icon-text>
+            <h2>Free to attend</h2>
+            <span slot="description">Places are limited and subject to approval</span>
+          </af-icon-text>
+        </a>
       </af-grid>
     </af-section>
 
@@ -73,8 +77,8 @@
         <af-typography-lockup heading-size="2" max-width="440">
           <span slot="eyebrow" class="eyebrow">Agenda</span>
           <h2>From new tools to a technical deep dive</h2>
-          <span slot="description">We'll move from the latest from OpenAI DevDay into practical perspectives on building products and creating reliable skills, then finish with pizza and conversation.</span>
-          <af-button slot="buttons" variant="tertiary" href="https://luma.com/avdxttft">Request your spot</af-button>
+          <span slot="description">We'll explore key insights from OpenAI DevDay 2026, and follow with practical masterclasses on building products and reliable skills. Pizza and conversation to close.</span>
+          <af-button slot="buttons" variant="tertiary" href="https://luma.com/avdxttft" external>Request your spot</af-button>
         </af-typography-lockup>
         </div>
 
@@ -108,8 +112,8 @@
               <span class="agenda-title">Building a reliable skill</span>
               <span class="agenda-speaker">Laurence Wood, AI Training Facilitator</span>
               <span class="agenda-links">
-                <a href="talks/reliable-skills/">Talk page and activity prompts</a>
-                <a href="talks/reliable-skills/ui-element-trimmer.zip" download>Skill download (ZIP)</a>
+                <a href="talks/reliable-skills/" target="_blank" rel="noopener">Talk page and activity prompts</a>
+                <a href="talks/reliable-skills/ui-element-trimmer.zip" download target="_blank" rel="noopener">Skill download (ZIP)</a>
               </span>
             </div>
           </li>
@@ -118,7 +122,7 @@
             <div class="agenda-body">
               <span class="agenda-group">Dev dive</span>
               <span class="agenda-title">Resourceful agents, open doors: what a season of AI mischief teaches builders</span>
-              <span class="agenda-speaker">Andrew Bird, Head of AI, Affinda, with Q&amp;A</span>
+              <span class="agenda-speaker">Andrew Bird, Head of AI, Affinda</span>
             </div>
           </li>
           <li>
@@ -142,8 +146,8 @@
     <af-section theme="white-ivory" padding="default" id="speakers">
       <af-typography-lockup heading-size="2" max-width="640">
         <span slot="eyebrow" class="eyebrow">Speakers</span>
-        <h2>Who you'll hear from</h2>
-        <span slot="description">Hosted by Matt McKinlay, Codex Ambassador, who opens the evening with the latest from OpenAI DevDay.</span>
+        <h2>Meet your experts</h2>
+        <span slot="description">Hosted by Matt McKinlay, Codex Ambassador.</span>
       </af-typography-lockup>
       <af-spacer size="8"></af-spacer>
       <ul class="speaker-tiles">
@@ -173,15 +177,15 @@
           <span slot="eyebrow" class="eyebrow">Venue</span>
           <h2>Stone &amp; Chalk Adelaide</h2>
           <span slot="description">Marnirni-apinthi Building, Lot Fourteen, North Terrace, Adelaide. Doors open at 5:30 pm.</span>
-          <af-button slot="buttons" variant="tertiary" href="https://www.google.com/maps/search/?api=1&amp;query=Stone+%26+Chalk+Adelaide+Lot+Fourteen">Open in Google Maps</af-button>
+          <af-button slot="buttons" variant="tertiary" href="https://www.google.com/maps/search/?api=1&amp;query=Stone+%26+Chalk+Adelaide+Lot+Fourteen" external>Open in Google Maps</af-button>
         </af-typography-lockup>
         <af-typography-lockup heading-size="3" max-width="480">
           <span slot="eyebrow" class="eyebrow">Hosts</span>
           <h2>Matt McKinlay and Affinda</h2>
-          <span slot="description">Matt McKinlay is a Codex Ambassador and is hosting the evening. Affinda is an OpenAI Advanced Partner that helps organisations harness AI to transform business processes.</span>
+          <span slot="description">Matt McKinlay is a Codex Ambassador and is hosting the evening. Affinda is an OpenAI Advanced Partner that helps organisations to understand, adopt and deploy AI.</span>
           <af-stack slot="buttons" gap="3" align="start">
-            <af-button variant="tertiary" href="https://www.affinda.com/">About Affinda</af-button>
-            <af-button variant="tertiary" href="https://www.linkedin.com/in/matthew-mckinlay-490819319/">Matt McKinlay on LinkedIn</af-button>
+            <af-button variant="tertiary" href="https://www.affinda.com/" external>About Affinda</af-button>
+            <af-button variant="tertiary" href="https://www.linkedin.com/in/matthew-mckinlay-490819319/" external>Matt McKinlay on LinkedIn</af-button>
           </af-stack>
         </af-typography-lockup>
       </af-grid>
@@ -210,11 +214,11 @@
         heading="Join us in Adelaide on 15 October."
         description="Registration is free and subject to approval, with limited places. Request your spot on Luma and we'll see you there.">
         <af-button-group slot="buttons">
-          <af-button variant="primary" href="https://luma.com/avdxttft">Register on Luma</af-button>
+          <af-button variant="primary" href="https://luma.com/avdxttft" external>Register on Luma</af-button>
         </af-button-group>
       </af-in-page-banner>
 
-      <a slot="logo" href="https://www.affinda.com/" aria-label="Affinda home"><af-logo class="october-footer__logo-full"></af-logo><af-logo-mark class="october-footer__logo-mark"></af-logo-mark></a>
+      <a slot="logo" href="https://www.affinda.com/" aria-label="Affinda home" target="_blank" rel="noopener"><af-logo class="october-footer__logo-full"></af-logo><af-logo-mark class="october-footer__logo-mark"></af-logo-mark></a>
       <af-social-link slot="social" icon="linkedin" label="LinkedIn" href="https://www.linkedin.com/company/affinda/"></af-social-link>
       <af-footer-column slot="nav" heading="This event">
         <af-footer-link href="#agenda">Agenda</af-footer-link>
@@ -224,22 +228,22 @@
         <af-footer-link href="https://luma.com/avdxttft" external>Register on Luma</af-footer-link>
       </af-footer-column>
       <af-footer-column slot="nav" heading="Products">
-        <af-footer-link href="https://www.affinda.com/gateway/">Affinda Gateway</af-footer-link>
-        <af-footer-link href="https://www.affinda.com/extract/">Affinda Extract</af-footer-link>
-        <af-footer-link href="https://www.affinda.com/deployment/">Affinda Deployment</af-footer-link>
+        <af-footer-link href="https://www.affinda.com/gateway/" external>Affinda Gateway</af-footer-link>
+        <af-footer-link href="https://www.affinda.com/extract/" external>Affinda Extract</af-footer-link>
+        <af-footer-link href="https://www.affinda.com/deployment/" external>Affinda Deployment</af-footer-link>
       </af-footer-column>
       <af-footer-column slot="nav" heading="About">
-        <af-footer-link href="https://www.affinda.com/about-us/">Company</af-footer-link>
-        <af-footer-link href="https://www.affinda.com/careers/">Careers</af-footer-link>
-        <af-footer-link href="https://www.affinda.com/security/">Security</af-footer-link>
+        <af-footer-link href="https://www.affinda.com/about-us/" external>Company</af-footer-link>
+        <af-footer-link href="https://www.affinda.com/careers/" external>Careers</af-footer-link>
+        <af-footer-link href="https://www.affinda.com/security/" external>Security</af-footer-link>
       </af-footer-column>
 
       <div class="october-footer__bottom">
         <p class="october-footer__copyright">&copy; 2026 Affinda. All rights reserved.</p>
         <div class="october-footer__legal">
-          <a href="https://www.affinda.com/privacy-and-data-protection-policy/">Privacy policy</a>
-          <a href="https://www.affinda.com/website-terms/">Website terms</a>
-          <a href="https://www.affinda.com/legal/">Legal</a>
+          <a href="https://www.affinda.com/privacy-and-data-protection-policy/" target="_blank" rel="noopener">Privacy policy</a>
+          <a href="https://www.affinda.com/website-terms/" target="_blank" rel="noopener">Website terms</a>
+          <a href="https://www.affinda.com/legal/" target="_blank" rel="noopener">Legal</a>
         </div>
         <div class="october-footer__badges">
           <img src="assets/compliance/gdpr.v1.svg" alt="GDPR compliant" width="64" height="64" loading="lazy" decoding="async">
